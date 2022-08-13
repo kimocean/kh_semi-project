@@ -1,0 +1,22 @@
+h1 {
+  margin-left: 15px;
+}
+
+#div_container {
+  width: 1000px;
+  padding: 30px;
+  margin: auto;
+}
+
+#class_name_set {
+  margin-left: 4px;
+}
+
+#class_time {
+  margin-bottom: 24px;
+}
+
+#class_ok{
+  margin-left: 15px;
+  margin-right: 10px;
+}

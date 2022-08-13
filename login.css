@@ -1,0 +1,45 @@
+#mem_gubun_h6 {
+  margin-top: 20px;
+}
+
+#form-pw {
+  position: relative;
+  /* display: inline-block; */
+  margin-bottom: 30px;
+}
+
+
+.fa-lg {
+  background-color: blue;
+  position: absolute;
+  margin-top: -25px;
+  margin-left: 305px;
+}
+
+#google_login{
+  margin-top: 10px;
+}
+
+.kakaoBtn {
+  display: block;
+  margin: auto;
+}
+
+.btn-user {
+  font-size: .8rem;
+  border-radius: 10rem;
+  padding: .75rem 1rem
+}
+
+.btn-github {
+  color: #fff;
+  background-color: rgb(51, 51, 51);
+  border-color: #fff
+}
+
+.btn-google {
+  color: #000;
+  background-color: #e12717;
+  border-color: #fff
+}
+

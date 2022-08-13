@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>수업 상세</title>
+</head>
+<body>
+  <h1>수업 상세</h1>
+  수업명
+  <select name="class_sel" class="class_sel" id="class_sel">
+    <option value="">선택</option>
+    <option value="[개인]">개인</option>
+    <option value="[그룹]">그룹</option>
+  </select>
+  <input type="text" name="class_name" class="class_name" id="class_name"> <br>
+  담당 강사 <input type="text" name="teacher_name" class="teacher_name" id="teacher_name"> <br>
+  수업 날짜 <input type="date" name="class_date" class="class_date" id="class_date"> <br>
+  수업 시간
+  <input type="class_time1" name="class_time1" class="class_time1" id="class_time1" size="2">&nbsp;&nbsp;:&nbsp;
+  <input type="class_time2" name="class_time2" class="class_time2" id="class_time2" size="2">&nbsp;&nbsp;~&nbsp;
+  <input type="class_time3" name="class_time3" class="class_time3" id="class_time3" size="2">&nbsp;&nbsp;:&nbsp;
+  <input type="class_time4" name="class_time4" class="class_time4" id="class_time4" size="2"> <br>
+  최대 수강 인원 <input type="text" disabled name="reserve_count" class="reserve_count" id="reserve_count">&nbsp;&nbsp;/&nbsp;
+  <input type="text" name="reserve_max" class="reserve_max" id="reserve_max"><br>
+  담당 센터
+  <select name="class_center" class="class_center" id="class_center">
+    <option value="">센터명</option>
+    <option value="지점1">지점1</option>
+    <option value="지점2">지점2</option>
+    <option value="지점3">지점3</option>
+    <option value="지점4">지점4</option>
+    <option value="지점5">지점5</option>
+  </select><br>
+  강의실
+  <select name="class_room" class="class_room" id="class_room">
+    <option value="">강의실명</option>
+    <option value="Room A">Room A</option>
+    <option value="Room B">Room B</option>
+    <option value="Room C">Room C</option>
+    <option value="Room D">Room D</option>
+    <option value="Room E">Room E</option>
+  </select><br>
+  <input type="button" value="확인">&nbsp;&nbsp; <!-- 완료되었습니다 팝업 -->
+  <input type="button" value="삭제"> <!-- 삭제하시겠습니까? 예 아니오 팝업 -->
+</body>
+</html>

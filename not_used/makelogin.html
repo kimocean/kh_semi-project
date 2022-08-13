@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>make sign up</title>
+</head>
+
+<body>
+  <form action="">
+    <h1>로그인</h1>
+    <div>email : <input type="email" id="signUpEmail"></div>
+    <div>password : <input type="password" id="signUpPassword"></div>
+    <button type="submit" onclick="location.href='./makesignup.html'" id="signUpButton">회원가입</button>
+    <button>로그인</button>
+  </form>
+
+
+  <!-- 파이어베이스 스크립트 -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+    // import {
+    //   getAuth, // authentication 설정
+    //   signInWithPopup, // google 로그인을 팝업창에 띄우기 위해
+    //   GoogleAuthProvider, // google 로그인 기능
+    //   signInWithEmailAndPassword, // 이메일 로그인
+    //   createUserWithEmailAndPassword // 이메일 회원가입
+    // } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyAkxep9jM-FpeZmEzaHlJuhiiQNEHb_HOk",
+        authDomain: "semiproject6.firebaseapp.com",
+        databaseURL: "https://semiproject6-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "semiproject6",
+        storageBucket: "semiproject6.appspot.com",
+        messagingSenderId: "300720308935",
+        appId: "1:300720308935:web:09cbe5d14559220c0cb4e2"
+      };
+
+    const app = initializeApp(firebaseConfig);
+
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
+
+    document.getElementById('signUpButton').addEventListener('click', (event) => {
+      event.preventDefault(); // 폼 태그에 정보 제공하는 순간 새고 됨. 새고 방지용 코드
+      const auth = getAuth();
+      const email = document.getElementById('signUpEmail').value
+      const password = document.getElementById('signUpPassword').value;
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => { // 회원가입이 잘 된다면 여기
+          console.log(userCredential);
+          // Signed in
+          const user = userCredential.user;
+          // ...
+        })
+        .catch((error) => { // 아니라면 여기
+          console.log(error);
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // ..
+        });
+    })
+
+  </script>
+  <!-- 파이어베이스 스크립트 -->
+
+</body>
+
+</html>
