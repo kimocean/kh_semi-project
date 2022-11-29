@@ -1,0 +1,77 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "transfer",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "`내용`",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "`분류`",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "`날짜`",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "transfer",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "`분류`",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "`이름`",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "`날짜`",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "transfer",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "`분류`",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "`제목`",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "`날짜`",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "transfer",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "`분류`",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "`제목`",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "id",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/24dbe51f07.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./resource/sb-admin-2.min.css">
+  <link rel="stylesheet" href="./resource/login.css">
+  <script src="./resource/login_check.js"></script>
+</head>
+
+<body class="bg-gradient-primary">
+  <div class="container">
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+      <div class="col-xl-10 col-lg-12 col-md-9">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h6 class="h5 text-gray-900 mb-4" id="mem_gubun_h6">
+                      <input type="radio" value="false" checked="checked" name="checked_auth" class="checked_mem"
+                        id="checked_mem">
+                      <label for="checked_mem">&nbsp;회원</label>&nbsp;&nbsp;&nbsp;
+                      <input type="radio" value="true" name="checked_auth" class="checked_mem checke_adm"
+                        id="checked_adm">
+                      <label for="checked_adm">&nbsp;관리자</label>
+                    </h6>
+                  </div>
+                  <form class="user">
+                    <div class="form-group">
+                      <input type="text" name="login_email" class="form-control form-control-user" id="login_email"
+                        aria-describedby="emailHelp" placeholder="이메일">
+                    </div>
+                    <div class="form-group" id="form-pw">
+                      <input type="password" name="login_pw" class="form-control form-control-user" id="login_pw"
+                        placeholder="비밀번호 (영문, 숫자, 특문 6~20자)">
+                      <i id="eye" class="fa fa-eye fa-lg"></i>
+                    </div>
+                    <!-- <div class="form-group">
+                      <div class="custom-control custom-checkbox small">
+                        <input type="checkbox" name="auto_login" class="custom-control-input" id="auto_login">
+                        <label class="custom-control-label" for="auto_login">자동 로그인</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" name="id_save" class="custom-control-input" id="id_save">
+                        <label class="custom-control-label" for="id_save">아이디 저장</label>
+                      </div>
+                    </div> -->
+                    <a href="javascript:()" class="btn btn-primary btn-user btn-block" id="loginButton">
+                      로그인
+                    </a>
+                    <hr>
+                    <a href="#" name="github_login" class="btn btn-github btn-user btn-block" id="github_login">
+                      <i class="fa-brands fa-github"></i>&nbsp;&nbsp;Login with Github
+                    </a>
+                    <a href="#" name="google_login" class="btn btn-google btn-user btn-block" id="google_login">
+                      <i class="fab fa-google fa-fw"></i>&nbsp;Login with Google
+                    </a>
+                  </form>
+                  <hr>
+                  <div class="text-center">
+                    <a class="small" href="forgot_password.html">비밀번호
+                      찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="small" href="signup.html">회원가입</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 패스워드 보였다 안 보였다 -->
+  <script>
+    $(document).ready(function () {
+      $('#eye').on('click', function () {
+        $('#login_pw').toggleClass('active');
+
+        if ($('#login_pw').hasClass('active')) {
+          $(this).attr('class', "fa fa-eye-slash fa-lg").prev('#login_pw').attr('type', "text");
+        } else {
+          $(this).attr('class', "fa fa-eye fa-lg").prev('#login_pw').attr('type', "password");
+        }
+      });
+    });
+  </script>
+  <!-- 패스워드 보였다 안 보였다 -->
+
+  <!-- 카카오 로그인-->
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <script>
+    // window.Kakao.init("efaa4b853c3be9781df5092e7c3734f3")
+
+    // function kakaoLogin() {
+    //   window.Kakao.Auth.login({
+    //     scope: 'account_email, gender, birthday',
+    //     success: function (authObj) {
+    //       console.log(authObj); // 액세스 토큰 말고는 뭐 뽑을 거 없음
+    //       // console.log(Kakao.Auth.authorize());
+    //       window.Kakao.API.request({
+    //         url: '/v2/user/me', // 로그인한 사용자의 정보
+    //         success: res => {
+    //           console.log(JSON.stringify(res)); // 정보 json 형식으로 출력
+    //           console.log(res.id); // 숫자로만 출력
+    //           const kakao_account = res.kakao_account;
+    //           console.log(kakao_account.email);
+    //           console.log(kakao_account.gender);
+    //           console.log(kakao_account.birthday);
+    //           console.log(Kakao.Auth.getAccessToken());
+    //           // location.href = './main.html';
+    //         },
+    //         fail: (error) => {},
+    //         always: a => {}
+    //       });
+    //     }
+    //   })
+
+    //   const token = getCookie('authorize-access-token')
+    //   if (token) {
+    //     Kakao.Auth.setAccessToken(token)
+    //     Kakao.Auth.getStatusInfo(({ status }) => {
+    //       if (status === 'connected') {
+    //         document.getElementById('token-result').innerText = 'login success. token: ' + Kakao.Auth.getAccessToken()
+    //       } else {
+    //         Kakao.Auth.setAccessToken(null)
+    //       }
+    //     })
+    //   }
+    //   function getCookie(name) {
+    //     const value = "; " + document.cookie;
+    //     const parts = value.split("; " + name + "=");
+    //     if (parts.length === 2) return parts.pop().split(";").shift();
+    //   }
+
+    // } // end of function kakaoLogin()
+  </script>
+  <!-- 카카오 로그인-->
+
+  <!-- 카카오 로그아웃 -->
+  <!-- <input type="button" value="카카오 로그아웃" onclick="kakaoLogout()"> -->
+  <script>
+
+    // function kakaoLogout() {
+
+    //   if (!Kakao.Auth.getAccessToken()) { // 토큰이 있는지 확인
+    //     console.log('login 안 했음');
+    //     return;
+    //   }
+
+    //   Kakao.Auth.logout(function () {
+    //     console.log('logout ok \n access token: ' + Kakao.Auth.getAccessToken);
+    //   })
+    // }
+  </script>
+  <!-- 카카오 로그아웃 -->
+
+  <!-- 카카오 연결 끊기(탈퇴) -->
+  <!-- <input type="button" value="카카오 탈퇴" onclick="kakaoout()">
+  <script>
+    function kakaoout() {
+      Kakao.Auth.setAccessToken(Kakao.Auth.getAccessToken());
+      Kakao.API.request({
+        url: '/v1/user/unlink',
+        success: function (response) {
+          alert("탈퇴 완료");
+          console.log(response);
+          // callbackFunction();
+        },
+        fail: function (error) {
+          alert("탈퇴 처리 미완료");
+          console.log(error);
+        }
+      })
+    } // end of kakaoout() -->
+  </script>
+  <!-- 카카오 연결 끊기(탈퇴) -->
+  <br>
+
+  <button value="로그아웃" id="logout">로그아웃</button>
+  <input type="button" value="탈퇴" id="userDeleteButton">
+  <!-- 파이어베이스 스크립트-->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithRedirect, signInWithPopup, getRedirectResult, deleteUser } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAkxep9jM-FpeZmEzaHlJuhiiQNEHb_HOk",
+      authDomain: "semiproject6.firebaseapp.com",
+      databaseURL: "https://semiproject6-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "semiproject6",
+      storageBucket: "semiproject6.appspot.com",
+      messagingSenderId: "300720308935",
+      appId: "1:300720308935:web:09cbe5d14559220c0cb4e2"
+    };
+    // firebase.initializeApp();
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    // const provider = new GoogleAuthProvider(app);
+
+    /////////////////// 파이어베이스 스크립트 /////////////////
+
+    /////////////////// 일반 로그인 //////////////////////
+    const db = firebase.firestore();
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        console.log("사용자 이메일 " + user.uid);
+        console.log(user.displayName);
+      }
+    });
+
+    function f_login() {
+      console.log("f_login 실행");
+      // 사용자가 입력한 이메일, 비번
+      const login_email = $("#login_email").val();
+      const login_pw = $("#login_pw").val();
+
+      login_Check();
+      if (login_Check() == false) {
+        return false;
+      }
+
+      if ($("input[id='checked_mem']:checked").val() == 'false') {
+        db.collection("user").get().then((snapshot) => {
+          snapshot.forEach((item) => {
+            if (item.data().mem_email === login_email) {
+              firebase.auth().signInWithEmailAndPassword(login_email, login_pw)
+                .then((result) => {
+                  console.log(result.user);
+                  console.log("회원 로그인에 성공했습니다.");
+                  // window.location.href = "./main.html";
+                  return false;
+                }).catch((error) => {
+                  console.log(error);
+                })
+            } // if end
+          }) // end of foreach
+          firebase.auth().onAuthStateChanged((user) => {
+            if (!user) {
+              alert("회원 로그인에 실패했습니다.");
+            }
+          }); // end of onAuthStateChange
+        })
+      }
+      else if ($("input[id='checked_adm']:checked").val() == 'true') {
+        db.collection("admin").get().then((snapshot) => {
+          snapshot.forEach((item) => {
+            if (item.data().mem_email === login_email) {
+              firebase.auth().signInWithEmailAndPassword(login_email, login_pw)
+                .then((result) => {
+                  console.log(result.user);
+                  console.log("관리자 로그인에 성공했습니다.");
+                  // window.location.href = "./main.html";
+                  return false;
+                }).catch((error) => {
+                  console.log(error);
+                })
+            } // if end
+          }) // end of foreach
+          firebase.auth().onAuthStateChanged((user) => {
+            if (!user) {
+              alert("관리자 로그인에 실패했습니다.");
+            }
+          }); // end of onAuthStateChange
+        })
+      }
+      //else {
+      //console.log("정보 없음");
+      //}
+    };
+
+    $("#loginButton").click(f_login);
+    $("#login_email").keyup(function (e) {
+      if (e.key === "Enter") {
+        f_login();
+      }
+    });
+    $("#login_pw").keyup(function (e) {
+      if (e.key === "Enter") {
+        f_login();
+      }
+    });
+    /////////////////// 일반 로그인 //////////////////////
+
+
+    /////////////// 구글 로그인 //////////////////
+    // const provider = new GoogleAuthProvider(app);
+
+    const googleButton = document.getElementById('google_login');
+
+    googleButton.addEventListener('click', (e) => {
+      console.log("클릭");
+      let GGprovider = new firebase.auth.GoogleAuthProvider();
+      GGprovider.addScope('profile');
+      GGprovider.addScope('email');
+      firebase.auth().signInWithPopup(GGprovider).then(function (result) {
+        const token = result.credential.accessToken;
+        const user = result.user;
+        const userInfo = {
+          mem_name: user.displayName,
+          mem_email: user.email
+        }
+        db.collection("user").doc(user.uid).set(userInfo);
+        location.href = "./class_main.html"
+        // alert("구글 로그인에 성공했습니다");
+      })
+
+        .catch((error) => {
+          console.log(error);
+          alert("구글 로그인에 실패했습니다. 다시 시도해 주세요.");
+        })
+    })
+    /////////////// 구글 로그인 //////////////////
+
+    /////////////// 깃허브 로그인 //////////////////
+
+    let GHprovider = new firebase.auth.GithubAuthProvider();
+    document.getElementById('github_login').addEventListener('click', (e) => {
+      console.log("github 로그인 클릭");
+      firebase
+        .auth()
+        .signInWithPopup(GHprovider)
+        .then((result) => {
+          //    /** @type {firebase.auth.OAuthCredential} */
+          let credential = result.credential;
+          let token = result.credential.accessToken;
+          let user = result.user;
+          console.log(user);
+          // alert("깃허브 로그인에 성공했습니다");
+          const userInfo = {
+            mem_email: user.email
+          }
+          db.collection("user").doc(user.uid).set(userInfo);
+          location.href = "./class_main.html"
+        }).catch((error) => {
+          let errorCode = error.code;
+          let errorMessage = error.message;
+          let email = error.email;
+          let credential = error.credential;
+          console.log(error);
+          alert("깃허브 로그인에 실패했습니다. 다시 시도해 주세요.");
+        });
+    })
+
+    /////////////// 깃허브 로그인 //////////////////
+    document.getElementById('logout').addEventListener('click', () => {
+      firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        alert("로그아웃 완료");
+      }).catch((error) => {
+        // An error happened.
+        alert('로그아웃 실패')
+      });
+    })
+
+    document.getElementById("userDeleteButton").addEventListener('click', () => {
+      console.log('click delete');
+      const userDelete = auth.currentUser;
+      
+      deleteUser(userDelete).then(() => {
+        alert("탈퇴 완료")
+      }).catch((error) => {
+        console.log(error.message);
+        alert("탈퇴 불가능")
+      });
+    })
+  </script>
+
+</body>
+
+</html>

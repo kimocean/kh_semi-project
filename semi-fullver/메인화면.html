@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index-main</title>
+      <!-- Additional CSS Files -->
+      <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="../public/css/font-awesome.css">
+      <link rel="stylesheet" href="main.css">
+      <link rel="stylesheet" href="../public/css/owl-carousel.css">
+      <link rel="stylesheet" href="../public/css/lightbox.css">
+
+      <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyAkxep9jM-FpeZmEzaHlJuhiiQNEHb_HOk",
+          authDomain: "semiproject6.firebaseapp.com",
+          databaseURL: "https://semiproject6-default-rtdb.asia-southeast1.firebasedatabase.app",
+          projectId: "semiproject6",
+          storageBucket: "semiproject6.appspot.com",
+          messagingSenderId: "300720308935",
+          appId: "1:300720308935:web:09cbe5d14559220c0cb4e2"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+      </script>
+      
+</head>
+<body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+   <!-- ***** 헤더 시작 ***** -->
+   <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="../public/images/fitnesslogo.png" width="110" height="110" align="Terrgym">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="submenu">
+                            <a href="#top">센터소개</a>
+                            <ul>
+                                <li><a href="#">시설소개</a></li>
+                                <li><a href="#">지점소개</a></li>
+                                <li><a href="#">강사소개</a></li>
+                            </ul>
+                        </li>
+                        <li class="scroll-to-section"><a href="#about">프로그램</a></li>
+                         
+                    <!-- 
+                        <li class="submenu">
+                            <a href="javascript:;">Drop Down</a>
+                            <ul>
+                                <li><a href="#">Drop Down Page 1</a></li>
+                                <li><a href="#">Drop Down Page 2</a></li>
+                                <li><a href="#">Drop Down Page 3</a></li>
+                            </ul>
+                        </li>
+                    -->
+                    <li class="submenu">
+                        <a href="javascript:;">게시판</a>
+                        <ul>
+                            <li><a href="#">이벤트</a></li>
+                            <li><a href="#">회원권</a></li>
+                            <li><a href="#">채팅문의</a></li>
+                        </ul>
+                    </li>
+                        <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->      
+                        <!-- <li class="scroll-to-section"><a href="#menu" class="active">로그인</a></li>   -->   
+                        <div style="float: right;">
+                            <button type="button" class="signup">회원가입</button>      
+                            <button type="button" class="login" onclick="document.location.href='http://127.0.0.1:5501/public/login.html'">로그인</button>      
+                        <button type="button" class="manager"  onclick="document.location.href='http://127.0.0.1:5501/public/%EC%9D%B8%EC%82%AC%EC%A0%95%EB%B3%B4%EB%93%B1%EB%A1%9D.html'">관리자</button>
+                    </div>
+
+                    
+                    </ul>        
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ***** 헤더 끝 ***** -->
+
+    <!-- ***** 메인배너 시작 ***** -->
+    <div id="top">
+        <div class="container-fluid">
+            <div class="row">
+                        <div class="inner-content">
+                            <div class="main-white-button scroll-to-section">
+                            </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="main-banner header-text">
+                        <div class="Modern-Slider">
+                          <!-- Item -->
+                          <div class="item">
+                            <div class="img-fill">
+                                <img src="../public/images/fitnesscenter.jpg" alt="">
+                            </div>
+                          </div>
+                          <!-- // Item -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** 메인배너 끝 ***** -->
+
+     <!-- ***** 헬스장 소개 시작 ***** -->
+     <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                    <div class="left-text-content">
+                        <div class="section-heading">
+                            <br>
+                            <h6>AN INNOVATE. CUTTING EDGE GYM FOR</h6>
+                            <h2>FIND YOUR OWN FIT</h2>
+                        </div>
+                        <p>최고의 피트니스 센터, <b>터짐</b></p>
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="../public/images/about-fitness6-copy.png" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img src="../public/images/about-fitness9.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img src="../public/images/about-fitness7-copy.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                    <div class="right-content">
+                        <div class="thumb">
+                            <br>
+                            <img src="../public/images/about-fitness.jpg" width="500px" height="500pxpx" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** 헬스장 소개 끝 ***** -->
+
+<!-- ***** 푸터 시작 ***** -->
+ <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-xs-12">
+                <div class="right-text-content">
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="logo">
+                    <a href="main.html"><img src="../public/images/fitnesslogo2.png" width="110" height="110" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-xs-12">
+                <div class="left-text-content">
+                    <p>© Copyright Terrgym Co.
+                    
+                    <br>Design:  BB</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+ <!-- ***** 푸터 끝 ***** -->
+
+    <!-- 폰트시작 -->
+    <style>
+    *{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    </style>
+    <!-- 폰트 끝 -->
+
+    <!-- 제이쿼리 -->
+    <script src="../public/js/jquery-2.1.0.min.js"></script>
+
+    <!-- 부트스트랩 -->
+    <script src="../public/js/popper.js"></script>
+    <script src="../public/js/bootstrap.min.js"></script>
+
+    <!-- 플러그인 -->
+    <script src="../public/js/owl-carousel.js"></script>
+    <script src="../public/js/accordions.js"></script>
+    <script src="../public/js/datepicker.js"></script>
+    <script src="../public/js/scrollreveal.min.js"></script>
+    <script src="../public/js/waypoints.min.js"></script>
+    <script src="../public/js/jquery.counterup.min.js"></script>
+    <script src="../public/js/imgfix.min.js"></script> 
+    <script src="../public/js/slick.js"></script> 
+    <script src="../public/js/lightbox.js"></script> 
+    <script src="../public/js/isotope.js"></script> 
+    
+    <!-- 스크립트 -->
+<!--     <script src="../public/js/custom.js"></script>
+    <script>
+
+        $(function() {
+            var selectedClass = "";
+            $("p").click(function(){
+            selectedClass = $(this).attr("data-rel");
+            $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("."+selectedClass).fadeOut();
+            setTimeout(function() {
+              $("."+selectedClass).fadeIn();
+              $("#portfolio").fadeTo(50, 1);
+            }, 500);
+                
+            });
+        });
+
+    </script> -->
+
+</body>
+</html>

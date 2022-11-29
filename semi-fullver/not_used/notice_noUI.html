@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>공지사항</title>
+<link href="notice.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/e3e652ad13.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+
+<script>
+  /* 파이어베이스 프로젝트 설정 內 내 앱 */
+  const firebaseConfig = {
+    apiKey: "AIzaSyAkxep9jM-FpeZmEzaHlJuhiiQNEHb_HOk",
+    authDomain: "semiproject6.firebaseapp.com",
+    databaseURL: "https://semiproject6-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "semiproject6",
+    storageBucket: "semiproject6.appspot.com",
+    messagingSenderId: "300720308935",
+    appId: "1:300720308935:web:09cbe5d14559220c0cb4e2"
+  };
+  /* 파이어베이스 프로젝트 설정 內 내 앱 끝*/
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+</script>
+
+<script>
+  // 전체레코드 갯수
+  class PageBar {
+    totalRecord;
+    //페이지당 레코드 수
+    numPerPage; // 10개씩이다
+    //블럭당 디폴트 페이지 수 - 여기서는 일단 2개로 정함.
+    pagePerBlock = 2;
+    //총페이지 수
+    totalPage;
+    //총블럭 수
+    totalBlock;
+    //현재 내가 바라보는 페이지 수
+    nowPage;
+    //현재 내가 바라보는 블럭 수
+    nowBlock;
+    //적용할 페이지 이름
+    pagePath;
+    pagination;
+    // 자바와는 다르게 오버로딩을 지원하지 않아.. 컨벤션
+    constructor(numPerPage, totalRecord, nowPage, pagePath) {
+      this.numPerPage = numPerPage;
+      this.totalRecord = totalRecord;
+      //alert(totalRecord);
+      this.nowPage = nowPage;
+      this.pagePath = pagePath;
+      this.totalPage = Math.ceil(this.totalRecord / this.numPerPage); // 47.0/10=> 4.7 4.1->5page 4.2->5page
+      this.totalBlock = Math.ceil(this.totalPage / this.pagePerBlock); //5.0/2=> 2.5-> 3장
+      //현재 내가바라보는 페이지 : (int)((double)4-1/2)
+      this.nowBlock = Math.floor(this.nowPage / this.pagePerBlock);
+    }
+    //setter메소드 선언
+    setPageBar() {
+      console.log("nowBlock:" + this.nowBlock);
+      let pageLink = "";
+      //전체 레코드 수가 0보다 클때 처리하기
+      if (this.totalRecord > 0) {
+        //nowBlock이 0보다 클때 처리
+        //이전 페이지로 이동 해야 하므로 페이지 번호에 a태그를 붙여야 하고
+        //pagePath뒤에 이동할 페이지 번호를 붙여서 호출 해야함.
+        if (this.nowBlock > 0) {
+          //(1-1)*2+(2-1)=1
+          // 여기부분을 버튼으로 하면 이쁘다???????????????????????????????????????????????
+          pageLink +=
+            "<a href='" +
+            this.pagePath +
+            "?nowPage=" +
+            ((this.nowBlock - 1) * this.pagePerBlock +
+              (this.pagePerBlock - 1)) +
+            "'>";
+          pageLink += "<img border=0 src='/images/bu_a.gif'>";
+          pageLink += "</a>&nbsp;&nbsp;";
+        }
+        for (let i = 0; i < this.pagePerBlock; i++) {
+          //현재 내가 보고 있는 페이지 블록 일때와
+          if (this.nowBlock * this.pagePerBlock + i == this.nowPage) {
+            pageLink +=
+              "<b>" +
+              (this.nowBlock * this.pagePerBlock + i + 1) +
+              "</b>&nbsp;";
+          }
+          //그렇지 않을 때를 나누어 처리해야 함.
+          else {
+            pageLink +=
+              "<a href='" +
+              this.pagePath +
+              "?nowPage=" +
+              (this.nowBlock * this.pagePerBlock + i) +
+              "'>" +
+              (this.nowBlock * this.pagePerBlock + i + 1) +
+              "</a>&nbsp;";
+          }
+          //모든 경우에 pagePerBlock만큼 반복되지 않으므로 break처리해야 함.
+          //주의할 것.
+          if (this.nowBlock * this.pagePerBlock + i + 1 == this.totalPage)
+            break;
+        }
+        //현재 블록에서 다음 블록이 존재할 경우 이미지 추가하고 페이지 이동할 수 있도록
+        //a태그 활용하여 링크 처리하기
+        if (this.totalBlock > this.nowBlock + 1) {
+          pageLink +=
+            "&nbsp;&nbsp;<a href='" +
+            this.pagePath +
+            "?nowPage=" +
+            (this.nowBlock + 1) * this.pagePerBlock +
+            "'>";
+          pageLink += "<img border=0 src='/images/bu_b.gif'>";
+          pageLink += "</a>";
+        }
+      }
+      this.pagination = pageLink;
+    }
+    //getter메소드 선언
+    getPageBar() {
+      this.setPageBar();
+      return this.pagination;
+    }
+  } // end of PageBar
+</script>
+
+<script>
+
+  let num = 0 //페이지 순번 담음
+  let total = 0 //전체 레코드 수
+  let numPerPage = 5 // 한 페이지에 몇개씩 뿌릴건가
+  let nowPage = 0 // 현재 내가 바라보는 페이지
+  let params = new URLSearchParams(document.location.search)
+  nowPage = params.get("nowPage")
+
+  const db = firebase.firestore();
+  db.collection('notice').orderBy("notice_date", "desc").get().then((item) => {
+    total = item.docs.length;
+
+    for (let i = nowPage * numPerPage; i < nowPage * numPerPage + numPerPage; i++) {
+
+      if (total === i) break;
+      let option_class = "분류";
+      const date = new Date(item.docs[i].data().notice_date.seconds * 1000);
+      if (item.docs[i].data().분류 != undefined) {
+        option_class = item.docs[i].data().분류;
+      }
+
+
+      const template = `
+      <tr>
+        <td>${total - i} </td>
+        <th></i>
+          <a href="./notice_detail.html?id=${item.docs[i].id}">${item.docs[i].data().notice_title}
+        </th>
+        <th>${item.docs[i].data().notice_writer}</th>
+        <td>${item.docs[i].data().notice_date}</td>
+      </tr>`
+
+      $('.board-content').append(template);
+    }
+
+    $('.pagenation').text("");
+
+    const pagePath = "notice_noUI.html"
+    const pb = new PageBar(numPerPage, total, nowPage, pagePath)
+    $(".pagenation").append(pb.getPageBar())
+  })
+</script>
+
+
+
+</head>
+
+<!-- 페이지 넘기기 버튼 시작 -->
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">터짐</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- 게시판 글 전까지 시작 -->
+  <div class="container">
+    <!-- page header -->
+    <div class="page-header">
+      <h2>공지사항</h2>
+      <hr />
+    </div>
+    <div class="row">
+      <div class="col-2">
+        <select class="form-select" aria-label="검색어" name="gubun" id="gubun">
+          <option defaultVaule value="notice_title">제목</option>
+          <option value="notice_content">내용</option>
+          <option value="notice_writer">작성자</option>
+        </select>
+      </div>
+      <br>
+      <br>
+      <div class="col-8">
+        <input type="text" name="keyword" id="keyword" class="form-control" style="width: 875px;" placeholder="검색어를 입력하세요" />
+      </div>
+      <div class="col-2">
+        <button class="btn btn-secondary" id="btnSearch" onclick="searchList()">검색</button>
+        <button class="btn btn-outline-secondary" id="write" onclick="location.href='./notice_write.html'">글쓰기</button>
+      </div>
+    </div>
+    <!-- 게시판 글 전까지 끝 -->
+
+    <script>
+      function searchList() {
+        const choice = $("#gubun option:selected").val();
+        const keyword = $("#keyword").val();
+        const option_class = $('#option_class option:selected').val();
+
+
+        let num = 0 //페이지 순번 담음
+        let total = 0 //전체 레코드 수
+        let numPerPage = 5 // 한 페이지에 몇개씩 뿌릴건가
+        let nowPage = 0 // 현재 내가 바라보는 페이지
+        let params = new URLSearchParams(document.location.search)
+        nowPage = params.get("nowPage")
+        // 페이징 처리에 필요한 변수 선언 //
+
+        const db = firebase.firestore();
+        db.collection('transfer').where('분류', "==", option_class).where(choice, "==", keyword).orderBy("notice_date", "desc").get().then((item) => {
+          total = item.docs.length;
+
+          if (total > 0) {
+            $(".board-content").text("");
+          } else {
+            alert("검색어와 일치하는 게시글이 없습니다.");
+            return;
+          }
+
+          for (let i = nowPage * numPerPage; i < nowPage * numPerPage + numPerPage; i++) {
+            if (total === i) break;
+            const date = new Date(item.docs[i].data().notice_date.seconds * 1000);
+
+
+            const template = `
+            <tr>
+              <td>${total - i} </td>
+             <!-- <th>${option_class}</th> -->
+              <th></i>
+                <a href="./notice_detail.html?id=${item.docs[i].id}">${item.docs[i].data().notice_title}
+                </th>
+                <th>${item.docs[i].data().notice_writer}</th>
+                <td>${item.docs[i].data().notice_date}</td>
+                </tr>`
+                
+                $('.board-content').append(template);
+                //<td>${date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2) + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ':' + ('0' + date.getSeconds()).slice(-2)}</td> -->
+            }
+
+          $('.pagenation').text("");
+
+          const pagePath = "index3.html";
+          const pb = new PageBar(numPerPage, total, nowPage, pagePath);
+          $(".pagenation").append(pb.getPageBar());
+        })
+      } // end of searchList
+    </script>
+
+
+
+    <!-- 게시글 목록 시작 -->
+    <div class="board-list">
+      <div class="container">
+        <table class="board-table">
+          <thead>
+            <tr>
+              <th scope="col" class="th-num">번호</th>
+              <th scope="col" class="th-title">제목</th>
+              <th scope="col" class="th-writer">작성자</th>
+              <th scope="col" class="th-date">작성일</th>
+            </tr>
+          </thead>
+          <tbody class="board-content"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!--페이지네이션-->
+    <table align="center">
+      <tbody class="pagenation"></tbody>
+    </table>
+    <!--페이지네이션 끝-->
+    <!-- 게시글 목록 끝 -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+body {
+  background-color: #ffffff;
+  margin: 30px 150px 30px 150px;
+  padding: 20px 20px 20px;
+}
+
+.inbody {
+  margin: 30px 150px 30px 150px;
+  padding: 20px 20px 20px;
+}
+
+/* 인바디 내역 */
+.my-inbody {
+  font-size: 35px;
+  padding-bottom: 20px;
+}
+
+/* 이름 */
+.user-name {
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+
+/* 테이블 */
+.inbody > .my-inbody > .row {
+  padding: 100px;
+  text-align: center;
+}
+

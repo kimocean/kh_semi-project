@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>make sign up</title>
+</head>
+
+<body>
+  <form action="">
+    <h1>회원가입</h1>
+    <div>email : <input type="email" id="signUpEmail"></div>
+    <div>password : <input type="password" id="signUpPassword"></div>
+    <div>이름 : <input type="text" id="signUpName"></div>
+    <button type="submit" id="signUpButton">회원가입</button>
+    <button>로그인</button>
+  </form>
+
+  <form action="">
+    <h1>로그인</h1>
+    <div>email : <input type="email" id="signInEmail"></div>
+    <div>password : <input type="password" id="signInPassword"></div>
+    <button type="submit" id="signInButton">로그인</button>
+    <button>회원가입</button>
+  </form>
+
+
+  <!-- 파이어베이스 스크립트 -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+    // import {
+    //   getAuth, // authentication 설정
+    //   signInWithPopup, // google 로그인을 팝업창에 띄우기 위해
+    //   GoogleAuthProvider, // google 로그인 기능
+    //   signInWithEmailAndPassword, // 이메일 로그인
+    //   createUserWithEmailAndPassword // 이메일 회원가입
+    // } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyAkxep9jM-FpeZmEzaHlJuhiiQNEHb_HOk",
+        authDomain: "semiproject6.firebaseapp.com",
+        databaseURL: "https://semiproject6-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "semiproject6",
+        storageBucket: "semiproject6.appspot.com",
+        messagingSenderId: "300720308935",
+        appId: "1:300720308935:web:09cbe5d14559220c0cb4e2"
+      };
+      const app = firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore(); // firestore database
+      const storage = firebase.storage(); // 이건 storage
+      $("#register").click(() => { // 아이디가 register를 눌렀을 때
+        console.log("register click");
+        const file = document.querySelector("#image").files[0];
+        const storageRef = storage.ref();
+        const storagePath = storageRef.child("image/" + file.name);
+        const uploadImg = storagePath.put(file);
+        uploadImg.on("state_change", null, (error) => {
+          console.error(error);
+        },
+          // 성공했을 때
+          () => {
+            console.log("이미지 업로드 성공");
+            uploadImg.snapshot.ref.getDownloadURL().then((url) => {
+              console.log(url);
+            })
+          }
+        )
+        // 사용자가 입력한 이메일, 비밀번호, 번호, 이름
+        const mem_name = $("#mem_name").val();
+        const mem_email = $("#mem_email").val();
+        const mem_hp = $("#mem_hp").val();
+        const mem_pw = $("#mem_pw").val();
+        console.log(mem_name + " " + mem_email + " " + mem_hp + " " + mem_pw);
+        firebase.auth().createUserWithEmailAndPassword(mem_email, mem_pw)
+          .then((result) => {
+            console.log("result user : "+result.user);
+            const userInfo = {
+              mem_email: mem_email,
+              mem_hp: mem_hp
+            };
+            console.log(userInfo);
+            db.collection("user").doc(result.user.uid).set(userInfo);
+            result.user.updateProfile({ displayName: mem_name }).then((displayName) => {
+              console.log("displayName => " + mem_name);
+            });
+            // window.location.href = "./loginForm1.html";
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+      }) // end of click register
+    </script>
+
+    <script>
+
+    /*
+
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
+    const auth = getAuth();
+
+    document.getElementById('signUpButton').addEventListener('click', (event) => {
+      event.preventDefault(); // 폼 태그에 정보 제공하는 순간 새고 됨. 새고 방지용 코드
+      const signUpEmail = document.getElementById('signUpEmail').value
+      const signUpPassword = document.getElementById('signUpPassword').value;
+      const signUpName = document.getElementById('signUpName').value;
+
+      createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+      .then((userCredential) => { // 회원가입이 잘 된다면 여기
+          console.log(userCredential);
+          const user = userCredential.user;
+        })
+        .then((result) => {
+          result.user.updateProfile({
+            displayName: signUpName
+          })
+        })
+        .catch((error) => { // 아니라면 여기
+          console.log(error);
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // ..
+        });
+    }); // end of signUp addeventlistener
+
+    
+    document.getElementById('signInButton').addEventListener('click', (event) => {
+      event.preventDefault();
+      const signInEmail = document.getElementById('signInEmail').value
+      const signInPassword = document.getElementById('signInPassword').value;
+
+      signInWithEmailAndPassword(auth, signInEmail, signInPassword)
+        .then((userCredential) => { // 로그인 잘되면
+          console.log(userCredential);
+          // Signed in
+          const user = userCredential.user;
+          // ...
+        })
+        .catch((error) => { // 로그인 실패하면
+          console.log(error);
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
+    }); // end up signIn addeventListener
+
+*/
+
+  </script>
+  <!-- 파이어베이스 스크립트 -->
+
+</body>
+
+</html>

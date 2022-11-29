@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원 상세</title>
+</head>
+<body>
+  <h1>회원 상세</h1>
+  이름 <input type="text" name="mem_name" class="mem_name" id="mem_name"> <br>
+  유효 기간 <input type="text" name="ex_period" class="ex_period" id="ex_period"> D-n일(남은 기간)<br>
+  이용권명 <input type="text" name="ticket_name" class="ticket_name" id="ticket_name"> <br>
+  이용 현황 <input type="text" name="ticket_use" class="ticket_use" id="ticket_use">
+  <input type="button" value="이용 내역" name="ticket_use_detail" class="ticket_use_detail" id="ticket_use_detail"><br>
+  구매가 <input type="text" name="ticket_pay" class="ticket_pay" id="ticket_pay">
+  <select name="ticket_pay_how" class="ticket_pay_how" id="ticket_pay_how" onchange="payMonth()">
+    <option value="">결제 방식</option>
+    <option value="계좌이체">계좌이체</option>
+    <option value="카드결제">카드결제</option>
+    <option value="할부">할부</option>
+  </select>
+  <select name="pay_option" class="pay_option" id="pay_option">
+    <option value="" id="pay_month">개월</option>
+  </select>
+  <br>
+  구매일자 <input type="date" name="pay_date" class="pay_date" id="pay_date"><br>
+  담당 강사 <input type="text" name="teacher_name" class="teacher_name" id="teacher_name"> <br>
+  담당 센터
+  <select name="class_center" class="class_center" id="class_center">
+    <option value="">센터명</option>
+    <option value="지점1">지점1</option>
+    <option value="지점2">지점2</option>
+    <option value="지점3">지점3</option>
+    <option value="지점4">지점4</option>
+    <option value="지점5">지점5</option>
+  </select>
+  <input type="text" placeholder="지점 변경 횟수" name="change_center" class="change_center" id="change_center"><br>
+  <input type="button" value="확인">&nbsp;&nbsp; <!-- 완료되었습니다 팝업 -->
+ 
+  <script>
+    let pay = [ {v: "1", m: "현금(계좌이체)"}, {v: "2", m: "카드결제"}, {v: "3", m: "할부"}, {v: "4", m: "기타"} ]
+    let installment = [ {v: "1", m: "2개월"}, {v: "2", m: "3개월"}];
+    
+    function payMonth_parent() {
+      let opt = [];
+      pay.forEach(data => {
+        opt.push(`<option value="${data.v}">${data.m}</option>`);
+      });
+      document.getElementById("ticket_pay_how").innerHTML = opt.join("");
+    }
+
+    function payMonth(){
+        let opt = [];
+        let tph = document.getElementById("ticket_pay_how").value;
+        
+        console.log(tph);
+        if( tph == ""){
+        }else {
+            if( tph == "3"){
+              installment.forEach(data =>{
+                    opt.push(`<option value="${data.v}">${data.m}</option>`);
+                });
+            }
+        }
+        document.getElementById("pay_month").innerHTML = opt.join("");
+    }
+
+    payMonth_parent();
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- Custom fonts for this template-->
+  <link href="../startbootstrap-sb-admin-2-gh-pages/vendor/fontawesome-free/css/all.css" rel="stylesheet"
+    type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="../startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css" rel="stylesheet">
+
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <script src="https://kit.fontawesome.com/24dbe51f07.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="signup.css">
+  <script src="signup_check.js" defer></script>
+</head>
+
+<body class="bg-gradient-primary">
+  <div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-7">
+            <div class="p-3">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">회원가입</h1>
+              </div>
+              <form class="user">
+                <div class="form-group row">
+                </div>
+                <div class="form-group">
+                  <!-- <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                    placeholder="Email Address"> -->
+                </div>
+                <!-- 이메일 -->
+                <div class="form-group">
+                    <input type="text" placeholder="email" name="mem_email_left" class="form-control form-control-user"
+                      id="mem_email_left">
+                </div>
+
+                <div class="form-group row" id="mem_email_form">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" name="mem_email_right" class="form-control form-control-user"
+                    id="mem_email_right" placeholder="domain">
+                  </div>
+                  <div class="col-sm-6">
+                    <select class="form-select" name="mem_select_email" id="mem_select_email">
+                      <option value="" selected>직접 입력</option>
+                      <option value="naver.com">naver.com</option>
+                      <option value="daum.net">daum.net</option>
+                      <option value="gmail.com">gmail.com</option>
+                      <option value="nate.com">nate.com</option>
+                    </select><br>
+                  </div>
+                </div>
+                <!-- 이메일 -->
+
+                <!-- 비밀번호 -->
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" onchange="check_pw()" name="mem_pw" class="form-control form-control-user"
+                      id="mem_pw" placeholder="Password - 영문, 숫자, 특문 6~20자">
+                    <!-- &nbsp;<span id="mem_pw_con1"></span> &nbsp;<span id="mem_pw_con2"></span> -->
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" onchange="check_pw()" name="mem_pw_check" class="form-control form-control-user"
+                      id="mem_pw_check" placeholder="Repeat Password">
+                       <!-- &nbsp;<span id="mem_pw_msg"></span> -->
+                  </div>
+                </div>
+                <!-- 비밀번호 -->
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-user" name="mem_name" id="mem_name"
+                    placeholder="이름">
+                </div>
+                <div class="form-group">
+                  <input type="text" maxlength="13" name="mem_tel" id="mem_tel" class="form-control form-control-user"
+                    placeholder="Telephone Number">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-user" name="mem_adr_left" id="mem_adr_left"
+                    placeholder="주소" disabled>
+                  <input type="button" id="mem_adr_search" class="btn btn-secondary btn-icon-split" value="주소 검색"> <br>
+                  <input type="text" class="form-control form-control-user" name="mem_adr_right" id="mem_adr_right"
+                    placeholder="상세 주소">
+                </div>
+                <input type="date" name="mem_birth" class="mem_birth form-control form-control-user" id="mem_birth"> <br>
+                <div class="custom-control custom-checkbox small" id="mem_gubun_form">
+                    <input type="checkbox" value="true" name="mem_gubun" class="custom-control-input" id="mem_gubun"
+                      class="custom-control-input">
+                    <label class="custom-control-label" for="mem_gubun">관리자입니다.</label>
+                  </div>
+                </div>
+                <hr>
+                <a href="#" name="mem_register" id="mem_register" class="btn btn-primary btn-user btn-block">
+                  Register Account
+                </a>
+                <!-- <a href="javascript:kakaoLogin()" name="kakao_login" class="btn btn-kakao btn-user btn-block"
+                  id="kakao_login">
+                  <i class="fa-solid fa-comment"></i>&nbsp;&nbsp;Register with KakaoTalk
+                </a>
+                <a href="index.html" class="btn btn-google btn-user btn-block">
+                  <i class="fab fa-google fa-fw"></i> Register with Google
+                </a> -->
+              </form>
+              <!-- <hr> -->
+              <div id="link_form">
+                <div class="text-center">
+                  <a class="small" href="forgot_password.html">비밀번호 찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a class="small" href="login.html">로그인</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Bootstrap core JavaScript-->
+  <script src="../startbootstrap-sb-admin-2-gh-pages/vendor/jquery/jquery.min.js"></script>
+  <script src="../startbootstrap-sb-admin-2-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="../startbootstrap-sb-admin-2-gh-pages/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="../startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js"></script>
+
+  <!-- 파이어베이스 회원가입 스크립트 -->
+  <!-- 파이어베이스 스크립트 -->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAkxep9jM-FpeZmEzaHlJuhiiQNEHb_HOk",
+      authDomain: "semiproject6.firebaseapp.com",
+      databaseURL: "https://semiproject6-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "semiproject6",
+      storageBucket: "semiproject6.appspot.com",
+      messagingSenderId: "300720308935",
+      appId: "1:300720308935:web:09cbe5d14559220c0cb4e2"
+    };
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore(); // firestore database
+    const storage = firebase.storage(); // 이건 storage
+    // document.getElementById("mem_register").addEventListener('click', (() => { // 아이디가 register를 눌렀을 때
+    $("#mem_register").click(() => { // 아이디가 register를 눌렀을 때
+      console.log("register click");
+
+      // const file = document.querySelector("#image").files[0];
+      // const storageRef = storage.ref();
+      // const storagePath = storageRef.child("image/" + file.name);
+      // const uploadImg = storagePath.put(file);
+      // uploadImg.on("state_change", null, (error) => {
+      //   console.error(error);
+      // },
+      //   // 성공했을 때
+      //   () => {
+      //     console.log("이미지 업로드 성공");
+      //     uploadImg.snapshot.ref.getDownloadURL().then((url) => {
+      //       console.log(url);
+      //     })
+      //   }
+      // )
+      // 사용자가 입력한 이메일, 비밀번호, 번호, 이름
+      const mem_id = $("#mem_email_left").val();
+      const mem_pw = $("#mem_pw").val();
+      const mem_name = $("#mem_name").val();
+      const mem_email = ($("#mem_email_left").val() + "@" + $("#mem_email_right").val());
+      // const mem_email = ($("#mem_email_left").val() + "@" + $("#mem_email_right").val());
+      const mem_tel = $("#mem_tel").val();
+      const mem_birth = $("#mem_birth").val();
+      const mem_adr = ($("#mem_adr_left").val() + $("#mem_adr_right").val());
+      const mem_gubun = $("#mem_gubun").is(":checked");
+
+        if(signUp_check() == false) {
+          return false;
+        } 
+
+      firebase.auth().createUserWithEmailAndPassword(mem_email, mem_pw)
+        .then((result) => {
+          console.log("result user : " + result.user);
+          const userInfo = {
+            mem_id: mem_id,
+            mem_name: mem_name,
+            mem_email: mem_email,
+            mem_tel: mem_tel,
+            mem_birth: mem_birth,
+            mem_adr: mem_adr,
+            mem_gubun: mem_gubun,
+          };
+          console.log(userInfo);
+          // db.collection("user").doc(result.user.uid).set(userInfo);
+          // result.user.updateProfile({ displayName: mem_name }).then((displayName) => {
+          //   console.log("displayName => " + mem_name);
+          // });
+          if(mem_gubun === true) {
+            db.collection("admin").doc(result.user.uid).set(userInfo);
+          result.user.updateProfile({ displayName: mem_name }).then((displayName) => {
+            console.log("displayName => " + mem_name);
+          });
+            window.location.href = "./signup_adm.html";
+          } else {
+            db.collection("user").doc(result.user.uid).set(userInfo);
+          result.user.updateProfile({ displayName: mem_name }).then((displayName) => {
+            console.log("displayName => " + mem_name);
+          });
+            window.location.href = "./signup_mem.html";
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+    }) // end of click register
+    // )
+  </script>
+  <!-- 파이어베이스 회원가입 스크립트 -->
+
+  <!-- 이메일 주소 스크립트 -->
+  <script language="javascript">
+    const email_right = document.querySelector('#mem_email_right')
+    const select_email = document.querySelector('#mem_select_email')
+    select_email.addEventListener('change', (e) => {
+      if (e.target.value !== '') { // 빈칸이 아니면(셀렉트박스 선택하면)
+        email_right.value = e.target.value; // 이메일 오른쪽에 셀렉트박스 선택한 거 삽입
+        email_right.disabled = true; // 못 쓰도록
+      } else { // 아니면... 직접 입력이면
+        email_right.value = ""; // 빈칸으로 지정
+        email_right.disabled = false;  // 사용 가능
+      }
+    });
+  </script>
+  <!-- 이메일 주소 스크립트 -->
+
+  <!-- 비밀번호 확인 스크립트 -->
+  <script>
+    // function check_pw() {
+
+    //   let mem_pw = document.getElementById('mem_pw').value;
+    //   let SC = ["!", "@", "#", "$", "%", "*"];
+    //   let check_SC = 0;
+
+    //   if (mem_pw.length < 6 || mem_pw.length > 20) {
+    //     document.getElementById('mem_pw_con1').innerHTML = '비밀번호는 6글자 이상, 20글자 이하만 이용 가능합니다.';
+    //   } else {
+    //     document.getElementById('mem_pw_con1').innerHTML = '';
+    //   }
+    //   for (let i = 0; i < SC.length; i++) {
+    //     if (mem_pw.indexOf(SC[i]) != -1) {
+    //       check_SC = 1;
+    //     }
+    //   }
+    //   if (check_SC == 0) {
+    //     document.getElementById('mem_pw_con2').innerHTML = '!,@,#,$,%,* 의 특수문자가 들어가 있지 않습니다.';
+    //   } else {
+    //     document.getElementById('mem_pw_con2').innerHTML = '';
+    //   }
+    //   if (document.getElementById('mem_pw').value != '' && document.getElementById('mem_pw_check').value != '') {
+    //     if (document.getElementById('mem_pw').value == document.getElementById('mem_pw_check').value) {
+    //       document.getElementById('mem_pw_msg').innerHTML = '비밀번호가 일치합니다.'
+    //       document.getElementById('mem_pw_msg').style.color = 'blue';
+    //     }
+    //     else {
+    //       document.getElementById('mem_pw_msg').innerHTML = '비밀번호가 일치하지 않습니다.';
+    //       document.getElementById('mem_pw_msg').style.color = 'red';
+    //     }
+    //   }
+    // }
+  </script>
+  <!-- 비밀번호 확인 스크립트 -->
+
+
+  <!-- 다음 주소 api 스크립트 -->
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script>
+    const adrSearch = document.getElementById("mem_adr_search");
+    adrSearch.addEventListener('click', (e) => {
+      new daum.Postcode({
+        oncomplete: function (data) {
+          document.getElementById("mem_adr_left").value = data.address; // 주소 넣기
+          document.querySelector("input[name=mem_adr_right]").focus(); //상세입력 포커싱
+        }
+      }).open();
+    })
+  </script>
+  <!-- 다음 주소 api 스크립트 -->
+
+  <!-- 휴대폰 번호 하이픈 자동 생성 스크립트 -->
+  <script>
+
+    $('#mem_tel').keydown(function (event) {
+      let hyphen = event.charCode || event.keyCode || 0;
+      $text = $(this);
+      if (hyphen !== 8 && hyphen !== 9) {
+        if ($text.val().length === 3) {
+          $text.val($text.val() + '-');
+        }
+        if ($text.val().length === 8) {
+          $text.val($text.val() + '-');
+        }
+      }
+      return (hyphen == 8 || hyphen == 9 || hyphen == 46 || (hyphen >= 48 && hyphen <= 57) || (hyphen >= 96 && hyphen <= 105));
+    });
+  </script>
+
+  <!-- 휴대폰 번호 하이픈 자동 생성 스크립트 -->
+
+  <!-- 아이디/비번 일치/이메일 존재해야 회원가입 버튼 활성화 -->
+  <script>
+    // const ckId = document.getElementById("mem_id");
+    const ckPw = document.getElementById("mem_pw");
+    const ckPwCk = document.getElementById("mem_pw_check");
+    const ckEmailL = document.getElementById("mem_email_left");
+    const ckEmailR = document.getElementById("mem_email_right");
+    const mem_register = document.getElementById("mem_register");
+
+    // ckId.addEventListener('keyup', activeEvent);
+    ckPw.addEventListener('keyup', activeEvent);
+    ckPwCk.addEventListener('keyup', activeEvent);
+    ckEmailL.addEventListener('keyup', activeEvent);
+    ckEmailR.addEventListener('keyup', activeEvent);
+
+    function activeEvent() {
+      if (((ckPw && /*ckId && */ckEmailL && ckEmailR) && (ckPw.value === ckPwCk.value))) {
+        mem_register.disabled = false;
+      } else {
+        mem_register.disabled = true;
+        console.log(((/*ckId && */ckPw && ckEmailL && ckEmailR) && (ckPw.value === ckPwCk.value)));
+      }
+      // switch(((ckId && ckPw && ckEmailL && ckEmailR) || (ckPw.value === ckPwCk.value))) {
+      //   case true : mem_register.disabled = false; break;
+      //   case false : mem_register.disabled = true; break;
+      // }
+    }
+
+    mem_register.addEventListener('click', (e) => {
+      // console.log(ckId.value);
+      // console.log(ckPw.value);
+      // console.log(ckPwCk.value);
+      // console.log(ckEmailL.value);
+      // console.log(ckEmailR.value);
+      // console.log(mem_register.disabled);
+      // console.log(ckPw.value === ckPwCk.value);
+    })
+  </script>
+  <!-- 아이디/비번 일치/이메일 존재해야 회원가입 버튼 활성화 -->
+</body>
+
+</html>

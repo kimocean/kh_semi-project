@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Tables</title>
+
+</head>
+
+
+
+
+
+
+
+
+<body id="page-top">
+
+
+ 
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <td>아이디</td>
+                                            <td>이름</td>
+                                            <td>직급</td>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+<!-- 파베 -->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+
+    <script>
+/* 파베 정보 */
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAkxep9jM-FpeZmEzaHlJuhiiQNEHb_HOk",
+    authDomain: "semiproject6.firebaseapp.com",
+    databaseURL: "https://semiproject6-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "semiproject6",
+    storageBucket: "semiproject6.appspot.com",
+    messagingSenderId: "300720308935",
+    appId: "1:300720308935:web:09cbe5d14559220c0cb4e2"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+
+   /* 파베 DB */
+  const db = firebase.firestore()
+  db.collection('Staff').get('테스트').then((result) => {
+    const tbody = document.querySelector('tbody')
+    result.forEach((doc) => {
+       const tr = document.createElement('tr')
+       tbody.appendChild(tr)
+      const addData = (data) => {
+        const td = document.createElement('td')
+        td.innerHTML = data
+        tr.appendChild(td)
+      }
+
+      const data = doc.data()
+      addData(data['아이디']) 
+      addData(data['이름']) 
+      addData(data['직급']) 
+      addData
+    })
+    })
+          
+        
+        </script>
+</body>
+
+</html>

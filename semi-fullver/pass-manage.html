@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이용권상세</title>
+  <link rel="stylesheet" href="../css/pass-manage.css">
+
+</head>
+<body>
+
+<!-- 이용권 상세 정보 text -->
+<div class="detail">
+
+  <div class="detail-box">
+  <div class="mem-hr">
+    <p>이용권 상세</p>
+  </div>
+
+  <!-- 인풋박스-->
+  <div class="mem-contents">
+    <p>이름&nbsp; <input type="text" name="user_name" value="" /></p>
+    <p>지점&nbsp; <input type="text" name="center" value="" /></p>
+    <p>이용권명&nbsp; <input type="text" name="pass_name" value="" /></p>
+    <p>구매가&nbsp; <input type="text" name="price" value="" /></p>
+    <p>구매일자&nbsp; <input type="text" name="purchase_date" value="" /></p>
+    <p>구매수단&nbsp; <input type="text" name="purchase_how" value="" /></p>
+    <p>수강시작일&nbsp; <input type="text" name="class_start" value="" /></p>
+    <p>수강종료일&nbsp; <input type="text" name="class_end" value="" /></p>
+    <p>유효기간&nbsp; <input type="text" name="valid" value="" /></p>
+    <p>이용권현황&nbsp; <input type="text" name="pass_status" value="" /></p>
+    <p>담당강사&nbsp; <input type="text" name="teacher" value="" /></p>
+  </div>
+
+  <!-- 버튼 -->
+  <div class="back">
+    <button type="button" class="submit" onClick="location.href='mem-manage.html'">뒤로가기</button>
+    <button type="button" class="submit" onClick="memDetail()">수정완료</button>
+  </div>
+
+<!-- div detail-box끝 -->
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- 제이쿼리 -->
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+ <!-- 파베 -->
+   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+
+<!-- 폰트 -->
+<style>
+  *{
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+</style>
+
+<script>
+
+/* 파이어베이스 정보  */
+const firebaseConfig = {
+    apiKey: "AIzaSyAkxep9jM-FpeZmEzaHlJuhiiQNEHb_HOk",
+    authDomain: "semiproject6.firebaseapp.com",
+    databaseURL: "https://semiproject6-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "semiproject6",
+    storageBucket: "semiproject6.appspot.com",
+    messagingSenderId: "300720308935",
+    appId: "1:300720308935:web:09cbe5d14559220c0cb4e2"
+  };
+  // Initialize Firebase
+   firebase.initializeApp(firebaseConfig);
+  
+    /* 파이어베이스 DB 갖고오기 */
+    const db = firebase.firestore();
+    db.collection("이용권관리").doc("bk2qVdVL7pyKboLPoN1Y").get().then((doc) => {
+    const data = doc.data();
+
+    /* DB 값 입력 */
+    document.querySelector('input[name="user_name"]').value = data['이름']
+    document.querySelector('input[name="center"]').value = data['지점']
+    document.querySelector('input[name="pass_name"]').value = data['이용권명']
+    document.querySelector('input[name="price"]').value = data['구매가']
+    document.querySelector('input[name="purchase_date"]').value = data['구매일자']
+    document.querySelector('input[name="purchase_how"]').value = data['구매수단']
+    document.querySelector('input[name="class_start"]').value = data['수강시작일']
+    document.querySelector('input[name="class_end"]').value = data['수강종료일']
+    document.querySelector('input[name="valid"]').value = data['유효기간']
+    document.querySelector('input[name="pass_status"]').value = data['이용권현황']
+    document.querySelector('input[name="teacher"]').value = data['담당강사']
+  });
+
+   /* 회원상세 수정(update) */
+   function memDetail() {
+  alert("수정이 완료되었습니다.");
+  var sujung = db.collection("이용권관리").doc("bk2qVdVL7pyKboLPoN1Y");
+  return sujung.update({
+    '이름': document.querySelector('input[name="user_name"]').value,
+    '지점': document.querySelector('input[name="center"]').value,
+    '이용권명': document.querySelector('input[name="pass_name"]').value,
+    '구매가': document.querySelector('input[name="price"]').value,
+    '구매일자': document.querySelector('input[name="purchase_date"]').value,
+    '구매수단': document.querySelector('input[name="purchase_how"]').value,
+    '수강시작일': document.querySelector('input[name="class_start"]').value,
+    '수강종료일': document.querySelector('input[name="class_end"]').value,
+    '유효기간': document.querySelector('input[name="valid"]').value,
+    '이용권현황': document.querySelector('input[name="pass_status"]').value,
+    '담당강사': document.querySelector('input[name="teacher"]').value,
+  }).then(() => {
+    //수정 성공시
+    console.log("수정 완료");
+  }).catch((error) => {
+    // 오류 발생시
+    console.error("오류 발생: ", error);
+  });
+}
+  
+
+</script>
+
+
+
+</body>
+</html>
+
+<!--   </div>
+  <div class="mem-detail-contents">
+    <p>이름 <input type="text" name="user_name" value= /></p>
+    <p>회원코드 <input type="text" name="user_name" value= /></p>
+    <p>이용권명(강좌코드) <input type="text" name="user_name" value= /></p>
+    <p>구매가 <input type="text" name="user_name" value= /></p>
+    <p>구매일자 <input type="text" name="user_name" value= /></p>
+    <p>수강시작일 <input type="text" name="user_name" value= /></p>
+    <p>수강종료일 <input type="text" name="user_name" value= /></p>
+    <p>이용권현황 <input type="text" name="user_name" value= /></p>
+    <p>담당강사 <input type="text" name="user_name" value= /></p>
+    <p>담당센터 <input type="text" name="user_name" value= /></p>
+  </div> -->

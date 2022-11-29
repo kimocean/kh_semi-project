@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내정보</title>
+  <!-- css 연결 -->
+  <link rel="stylesheet" href="../css/my-account.css">
+  <!-- 폰트 연결 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 전체 div 시작 -->
+  <div class="my-account">
+
+    <div class="left-info">
+
+  <!-- 왼쪽div 정보 -->
+  <div class="left-profile">
+    <p class="user-info">내 정보</p>
+    <img src="https://icon-library.com/images/my-profile-icon-png/my-profile-icon-png-3.jpg" width="84" height="84"
+      alt="프로필 이미지"><br>
+    <p class="user-name">정민주</p>
+  </div>
+  
+  <div class="button1">
+    <button type="button" class="mypro" onClick="location.href='my-pass.html'">이용권</button>
+    <button type="button" class="inbody" onClick="location.href='inbody.html'">인바디</button>
+  </div>
+  
+  </div>
+  
+  <!-- 중간div 정보(인풋박스) -->
+  <form>
+    <div class="cen-info">
+      <p>
+        <label for="user-id">아이디</label>
+        <br>def34
+      </p>
+      <hr>
+      <p>
+        <label for="user-pw">비밀번호</label>
+        <br>
+        <input type="password" name="user_pw" value="" />
+      </p>
+      <hr>
+  
+      <p>
+        <label for="user_phone">전화번호</label>
+        <br>
+        <input type="text" name="user_phone" value="" />
+      </p>
+      <hr>
+  
+      <p>
+        <label for="user_email">이메일</label>
+        <br>
+        <input type="text" name="user_email" value="" />
+      </p>
+      <hr>
+  
+      <p style="width:200px; height:5px;">
+        SMS/이메일 수신여부
+      <h5>*헬스장에서 제공되는 이벤트 소식을 SMS 및 이메일로 수신할 수 있습니다.</h5>
+      <label><input type="checkbox" name="user_check" value="">SMS</label>
+      <label><input type="checkbox" name="user_check2" value="">이메일</label>
+      </p>
+      <hr>
+  
+      <!-- 버튼 클래스 -->
+      <div class="button2">
+        <button2 style="float:right;">
+          <button type="reset" class="reset" onClick="clear">초기화</button>
+          <button type="button" class="submit" onClick="myAccount()">수정완료</button>
+          <button type="button" class="quit" onClick="location.href='delete.html'">회원탈퇴</button>
+        </div>
+      </div>
+
+  <!-- 전체 div 끝 -->
+  </div>
+  </form>
+  
+  <!-- 제이쿼리 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  
+  <!-- 파베 -->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+  
+  <!-- 폰트 -->
+  <style>
+    *{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+  </style>
+
+  <script>
+    /* 파이어베이스 정보 */
+    const firebaseConfig = {
+      apiKey: "AIzaSyAkxep9jM-FpeZmEzaHlJuhiiQNEHb_HOk",
+      authDomain: "semiproject6.firebaseapp.com",
+      databaseURL: "https://semiproject6-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "semiproject6",
+      storageBucket: "semiproject6.appspot.com",
+      messagingSenderId: "300720308935",
+      appId: "1:300720308935:web:09cbe5d14559220c0cb4e2"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    
+    /* 파이어베이스 DB 갖고오기 */
+    const db = firebase.firestore();
+    db.collection("회원관리").doc("V5UwLDcPHlSaCfwpq8Kd").get().then((doc) => {
+    const data = doc.data();
+
+      /* DB 값 입력 */
+      document.querySelector('input[name="user_pw"]').value = data['비밀번호']
+      document.querySelector('input[name="user_phone"]').value = data['전화번호']
+      document.querySelector('input[name="user_email"]').value = data['이메일']
+      document.querySelector('input[name="user_check"]').checked = true
+      document.querySelector('input[name="user_check2"]').checked = true
+    });
+  
+  /* 개인정보 수정(update) */
+  function myAccount() {
+  alert("수정이 완료되었습니다.");
+  var sujung = db.collection("회원관리").doc("V5UwLDcPHlSaCfwpq8Kd");
+  return sujung.update({
+    '비밀번호': document.querySelector('input[name="user_pw"]').value,
+    '전화번호': document.querySelector('input[name="user_phone"]').value,
+    '이메일': document.querySelector('input[name="user_email"]').value,
+    'SMS수신': document.querySelector('input[name="user_check"]').checked,
+    '이메일수신': document.querySelector('input[name="user_check2"]').checked,
+  }).then(() => {
+    //수정 성공시
+    console.log("수정 완료");
+  }).catch((error) => {
+    // 오류 발생시
+    console.error("오류 발생: ", error);
+  });
+}
+  
+  </script>
+</body>
+</html>

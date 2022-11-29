@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원관리-등록</title>
+  <link rel="stylesheet" href="../css/register-manage.css">
+
+</head>
+<body>
+
+<!-- 회원 상세 정보 text -->
+<div class="detail">
+
+  <div class="detail-box">
+  <div class="mem-hr">
+    <p>회원등록</p>
+  </div>
+
+  <!-- 인풋박스-->
+  <div class="mem-contents">
+    <p>이름&nbsp; <input type="text" id="user_name" value="" /></p>
+    <p>아이디&nbsp; <input type="text" id="mem_id" value="" /></p>
+    <p>비밀번호&nbsp; <input type="text" id="mem_pw" value="" /></p>
+    <p>성별&nbsp; <input type="text" id="mem_gen" value="" /></p>
+    <p>생년월일&nbsp; <input type="text" id="mem_birth" value="" /></p>
+    <p>주소&nbsp; <input type="text" id="mem_adr" value="" /></p>
+    <p>전화번호&nbsp; <input type="text" id="mem_tel" value="" /></p>
+    <p>이메일&nbsp; <input type="text" id="mem_email" value="" /></p>
+    <p>지점&nbsp; <input type="text" id="center" value="" /></p>
+  </div>
+
+  <!-- 버튼 -->
+  <div class="back">
+    <button type="button" class="submit" onClick="location.href='mem-manage.html'">뒤로가기</button>
+    <button type="button" class="submit" id="gogo" onClick="alert('등록이 완료되었습니다.')">등록완료</button>
+  </div>
+
+<!-- div detail-box끝 -->
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- 제이쿼리 -->
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+ <!-- 파베 -->
+   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+
+<!-- 폰트 -->
+<style>
+  *{
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+</style>
+
+<script>
+  /* 파베 정보 */
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+      apiKey: "AIzaSyAkxep9jM-FpeZmEzaHlJuhiiQNEHb_HOk",
+      authDomain: "semiproject6.firebaseapp.com",
+      databaseURL: "https://semiproject6-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "semiproject6",
+      storageBucket: "semiproject6.appspot.com",
+      messagingSenderId: "300720308935",
+      appId: "1:300720308935:web:09cbe5d14559220c0cb4e2"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig)
+
+  /* 파베 DB */
+  
+const db = firebase.firestore()
+$('#gogo').click(function(){
+var gogo = { 
+이름 : $('#user_name').val(),
+아이디 : $('#mem_id').val(),
+비밀번호 : $('#mem_pw').val(),
+성별 : $('#mem_gen').val(),
+생년월일 : $('#mem_birth').val(),
+주소 : $('#mem_adr').val(),
+전화번호 : $('#mem_tel').val(),
+이메일 : $('#mem_email').val(),
+지점 : $('#center').val()
+
+
+}
+db.collection('회원관리').add(gogo)
+});
+
+</script>
+
+
+</body>
+</html>
+
+<!--   </div>
+  <div class="mem-detail-contents">
+    <p>이름 <input type="text" name="user_name" value= /></p>
+    <p>회원코드 <input type="text" name="user_name" value= /></p>
+    <p>이용권명(강좌코드) <input type="text" name="user_name" value= /></p>
+    <p>구매가 <input type="text" name="user_name" value= /></p>
+    <p>구매일자 <input type="text" name="user_name" value= /></p>
+    <p>수강시작일 <input type="text" name="user_name" value= /></p>
+    <p>수강종료일 <input type="text" name="user_name" value= /></p>
+    <p>이용권현황 <input type="text" name="user_name" value= /></p>
+    <p>담당강사 <input type="text" name="user_name" value= /></p>
+    <p>담당센터 <input type="text" name="user_name" value= /></p>
+  </div> -->

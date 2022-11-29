@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강제탈퇴</title>
+  <link rel="stylesheet" href="../css/delete-manage.css">
+
+</head>
+<body>
+  <div class="delete">
+    <div class="delete-p">
+      <p>선택한 회원을 강제탈퇴 하시겠습니까?</p>
+    </div>
+    <div class="delete-hr">
+      <p class="reason"><h4>※사유</h4></p><hr>
+    </div>
+    <div class="delete-box">
+      <p class "delete-check-box">
+        <p><input type="checkbox" name="aa" id="aa">욕설 및 비방</p>
+        <p><input type="checkbox" name="bb" id="bb">도배</p>
+        <p><input type="checkbox" name="cc" id="cc">홍보</p>
+        <p><input type="checkbox" name="dd" id="dd">기타</p>
+      </p>
+      <br>
+      <div class="delete-button">
+        <button type="button" class="submit" onClick="goodbye()">확인</button>
+        </div>
+        
+        
+<!--       <div class="close-button">
+      <button type="button" class="submit" onClick="location.href='mem-manage-ui2.html'">닫기</button>
+      </div> -->
+
+    </div>
+  </div>
+
+  <!-- 폰트 -->
+  <style>
+    *{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+  </style>
+
+  <!-- 제이쿼리 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!-- 파베 -->
+   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+  
+  <script>
+     /* DB 정보 */
+  const firebaseConfig = {
+    apiKey: "AIzaSyAkxep9jM-FpeZmEzaHlJuhiiQNEHb_HOk",
+    authDomain: "semiproject6.firebaseapp.com",
+    databaseURL: "https://semiproject6-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "semiproject6",
+    storageBucket: "semiproject6.appspot.com",
+    messagingSenderId: "300720308935",
+    appId: "1:300720308935:web:09cbe5d14559220c0cb4e2"
+  };
+
+  // Initialize Firebase
+   firebase.initializeApp(firebaseConfig);
+
+  const db = firebase.firestore()
+  function goodbye(){
+  alert("강제탈퇴가 완료되었습니다.");
+  db.collection("회원관리").doc("otibvZj9OZyyvdBGMtEE").delete().then(() => { //랜덤 아이디로는 데이터가 삭제 안됨
+  // 삭제 되었을 때
+    }).catch((error) => {
+      console.error(error);
+  // 실패 했을 때
+    })
+  }
+
+  </script>
+</body>
+</html>
+
+<!--  const db = firebase.firestore()
+  function goodbye() {
+  db.collection('회원관리')
+    .doc(new URLSearchParams(location.search.slice(1)).get('id'))
+    .delete()
+    .then(() => {
+      //랜덤 아이디로는 데이터가 삭제 안됨
+      alert('강제탈퇴가 완료되었습니다.');
+    })
+    .catch((error) => {
+      console.error(error);
+      // 실패 했을 때
+    });
+}  -->

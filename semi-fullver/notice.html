@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>공지사항</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="./resource/all.min.css" rel="stylesheet"
+        type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="./resource/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/24dbe51f07.js" crossorigin="anonymous"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/e3e652ad13.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link href="./resource/notice.css" rel="stylesheet">
+    <script src="./resource/navbar_logout.js"></script>
+
+</head>
+
+<body id="page-top">
+    <style>
+      #terrgym_logo {
+        width: 70px;
+        opacity: 80%;
+        margin-right: -15px;
+      }
+  
+    </style>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+  
+      <!-- Sidebar -->
+      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-light accordion" id="accordionSidebar">
+  
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+          <div class="sidebar-brand-icon">
+            <img src="./resource/fitnesslogo.png" alt="" id="terrgym_logo">
+          </div>
+          <div class="sidebar-brand-text mx-3">TerrGYM<sup></sup></div>
+        </a>
+  
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+  
+              <!-- Nav Item - Dashboard -->
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>회원정보관리</span></a>
+            </li>
+  
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseClass" aria-expanded="true"
+            aria-controls="collapseClass">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>수업일정</span>
+          </a>
+          <div id="collapseClass" class="collapse" aria-labelledby="headingClass" data-bs-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <a class="collapse-item" href="class_main.html">수업일정</a>
+              <a class="collapse-item" href="notice.html">수업 공지사항</a>
+            </div>
+          </div>
+        </li>
+  
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTeacher" aria-expanded="true"
+            aria-controls="collapseTeacher">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>강사정보</span>
+          </a>
+          <div id="collapseTeacher" class="collapse" aria-labelledby="headingTeacher" data-bs-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <a class="collapse-item" href="#">강사정보등록</a>
+              <a class="collapse-item" href="#">사원명부/강사기록카드</a>
+              <a class="collapse-item" href="#">강사발령등록</a>
+            </div>
+          </div>
+        </li>
+  
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseInsa" aria-expanded="true"
+            aria-controls="collapseInsa">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>인사기초정보설정/조회</span>
+          </a>
+          <div id="collapseInsa" class="collapse" aria-labelledby="headingInsa" data-bs-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <a class="collapse-item" href="#">인사기준정보설정</a>
+              <a class="collapse-item" href="#">인사메뉴권한설정</a>
+              <a class="collapse-item" href="#">인사정보재등록</a>
+            </div>
+          </div>
+        </li>
+  
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseSalary" aria-expanded="true"
+            aria-controls="collapseSalary">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>급상여관리</span>
+          </a>
+          <div id="collapseSalary" class="collapse" aria-labelledby="headingSalary" data-bs-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <a class="collapse-item" href="급여항목설정.html">급여기본정보관리</a>
+              <a class="collapse-item" href="#">급상여입력</a>
+              <a class="collapse-item" href="#">추가급상여입력</a>
+              <a class="collapse-item" href="#">월별급여/상여지급현황</a>
+            </div>
+          </div>
+        </li>
+  
+  
+      </ul>
+      <!-- End of Sidebar -->
+  
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+  
+        <!-- Main Content -->
+        <div id="content">
+  
+          <!-- Topbar -->
+          <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+  
+            <!-- Sidebar Toggle (Topbar) -->
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+              <i class="fa fa-bars"></i>
+            </button>
+  
+            <!-- Topbar Search -->
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+              <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="검색"
+                  aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+  
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+  
+              <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+              <li class="nav-item dropdown no-arrow d-sm-none">
+                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-search fa-fw"></i>
+                </a>
+                <!-- Dropdown - Messages -->
+                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                  aria-labelledby="searchDropdown">
+                  <form class="form-inline mr-auto w-100 navbar-search">
+                    <div class="input-group">
+                      <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                        aria-label="Search" aria-describedby="basic-addon2">
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                          <i class="fas fa-search fa-sm"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </li>
+  
+              <!-- Nav Item - Alerts -->
+  
+  
+              <div class="topbar-divider d-none d-sm-block"></div>
+  
+              <!-- Nav Item - User Information -->
+              <li class="nav-item dropdown no-arrow" style="width: 200px;">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="now_login_name" style="margin: auto;">로그인이 필요합니다.</span>
+                  <!-- <img class="img-profile rounded-circle" src="img/undraw_profile.svg"> -->
+                </a>
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                  <a class="dropdown-item" href="#">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Profile
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal" id="nav_logout">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Logout
+                  </a>
+                </div>
+              </li>
+  
+            </ul>
+  
+          </nav>
+          <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-4 text-gray-800">공지사항</h1>
+                    <div class="row">
+                        <div class="col-2">
+                            <select class="form-select" aria-label="검색어" name="notice_gubun" id="notice_gubun">
+                                <option defaultVaule value="notice_title">제목</option>
+                                <option value="notice_content">내용</option>
+                                <option value="notice_writer">작성자</option>
+                            </select>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="col-8">
+                            <input type="text" name="notice_keyword" id="notice_keyword" class="form-control"
+                                placeholder="검색어를 입력하세요" />
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-secondary" id="btnSearch" onclick="searchList()">검색</button>
+                            <button class="btn btn-outline-secondary" id="notice_write"
+                                onclick="window.location.href='./notice_write.html'">글쓰기</button>
+                        </div>
+                    </div>
+
+                    <!-- 게시글 목록 시작 -->
+                    <div class="board-list">
+                        <div class="container">
+                            <table class="board-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="th-num">번호</th>
+                                        <th scope="col" class="th-title">제목</th>
+                                        <th scope="col" class="th-writer">작성자</th>
+                                        <th scope="col" class="th-date">작성일</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="board-content"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--페이지네이션-->
+                    <table align="center">
+                        <tbody class="pagenation"></tbody>
+                    </table>
+                    <!--페이지네이션 끝-->
+                    <!-- 게시글 목록 끝 -->
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="./resource/jquery.min.js"></script>
+    <script src="./resource/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="./resource/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="./resource/sb-admin-2.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+    <script>
+        /* 파이어베이스 프로젝트 설정 內 내 앱 */
+        const firebaseConfig = {
+            apiKey: "AIzaSyAkxep9jM-FpeZmEzaHlJuhiiQNEHb_HOk",
+            authDomain: "semiproject6.firebaseapp.com",
+            databaseURL: "https://semiproject6-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "semiproject6",
+            storageBucket: "semiproject6.appspot.com",
+            messagingSenderId: "300720308935",
+            appId: "1:300720308935:web:09cbe5d14559220c0cb4e2"
+        };
+        /* 파이어베이스 프로젝트 설정 內 내 앱 끝*/
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        console.log(user.displayName);
+        document.querySelector("#now_login_name").innerHTML = user.displayName;
+      }
+    });
+
+    </script>
+
+    <script>
+        // 전체레코드 갯수
+        class PageBar {
+            totalRecord;
+            //페이지당 레코드 수
+            numPerPage; // 10개씩이다
+            //블럭당 디폴트 페이지 수 - 여기서는 일단 2개로 정함.
+            pagePerBlock = 10;
+            //총페이지 수
+            totalPage;
+            //총블럭 수
+            totalBlock;
+            //현재 내가 바라보는 페이지 수
+            nowPage;
+            //현재 내가 바라보는 블럭 수
+            nowBlock;
+            //적용할 페이지 이름
+            pagePath;
+            pagination;
+            // 자바와는 다르게 오버로딩을 지원하지 않아.. 컨벤션
+            constructor(numPerPage, totalRecord, nowPage, pagePath) {
+                this.numPerPage = numPerPage;
+                this.totalRecord = totalRecord;
+                //alert(totalRecord);
+                this.nowPage = nowPage;
+                this.pagePath = pagePath;
+                this.totalPage = Math.ceil(this.totalRecord / this.numPerPage); // 47.0/10=> 4.7 4.1->5page 4.2->5page
+                this.totalBlock = Math.ceil(this.totalPage / this.pagePerBlock); //5.0/2=> 2.5-> 3장
+                //현재 내가바라보는 페이지 : (int)((double)4-1/2)
+                this.nowBlock = Math.floor(this.nowPage / this.pagePerBlock);
+            }
+            //setter메소드 선언
+            setPageBar() {
+                console.log("nowBlock:" + this.nowBlock);
+                let pageLink = "";
+                //전체 레코드 수가 0보다 클때 처리하기
+                if (this.totalRecord > 0) {
+                    //nowBlock이 0보다 클때 처리
+                    //이전 페이지로 이동 해야 하므로 페이지 번호에 a태그를 붙여야 하고
+                    //pagePath뒤에 이동할 페이지 번호를 붙여서 호출 해야함.
+                    if (this.nowBlock > 0) {
+                        //(1-1)*2+(2-1)=1
+                        // 여기부분을 버튼으로 하면 이쁘다???????????????????????????????????????????????
+                        pageLink +=
+                            "<a href='" +
+                            this.pagePath +
+                            "?nowPage=" +
+                            ((this.nowBlock - 1) * this.pagePerBlock +
+                                (this.pagePerBlock - 1)) +
+                            "'>";
+                        pageLink += "<img border=0 src='/images/bu_a.gif'>";
+                        pageLink += "</a>&nbsp;&nbsp;";
+                    }
+                    for (let i = 0; i < this.pagePerBlock; i++) {
+                        //현재 내가 보고 있는 페이지 블록 일때와
+                        if (this.nowBlock * this.pagePerBlock + i == this.nowPage) {
+                            pageLink +=
+                                "<b>" +
+                                (this.nowBlock * this.pagePerBlock + i + 1) +
+                                "</b>&nbsp;";
+                        }
+                        //그렇지 않을 때를 나누어 처리해야 함.
+                        else {
+                            pageLink +=
+                                "<a href='" +
+                                this.pagePath +
+                                "?nowPage=" +
+                                (this.nowBlock * this.pagePerBlock + i) +
+                                "'>" +
+                                (this.nowBlock * this.pagePerBlock + i + 1) +
+                                "</a>&nbsp;";
+                        }
+                        //모든 경우에 pagePerBlock만큼 반복되지 않으므로 break처리해야 함.
+                        //주의할 것.
+                        if (this.nowBlock * this.pagePerBlock + i + 1 == this.totalPage)
+                            break;
+                    }
+                    //현재 블록에서 다음 블록이 존재할 경우 이미지 추가하고 페이지 이동할 수 있도록
+                    //a태그 활용하여 링크 처리하기
+                    if (this.totalBlock > this.nowBlock + 1) {
+                        pageLink +=
+                            "&nbsp;&nbsp;<a href='" +
+                            this.pagePath +
+                            "?nowPage=" +
+                            (this.nowBlock + 1) * this.pagePerBlock +
+                            "'>";
+                        pageLink += "<img border=0 src='/images/bu_b.gif'>";
+                        pageLink += "</a>";
+                    }
+                }
+                this.pagination = pageLink;
+            }
+            //getter메소드 선언
+            getPageBar() {
+                this.setPageBar();
+                return this.pagination;
+            }
+        } // end of PageBar
+    </script>
+
+    <script>
+
+        let num = 0 //페이지 순번 담음
+        let total = 0 //전체 레코드 수
+        let numPerPage = 5 // 한 페이지에 몇개씩 뿌릴건가
+        let nowPage = 0 // 현재 내가 바라보는 페이지
+        let params = new URLSearchParams(document.location.search)
+        nowPage = params.get("nowPage")
+
+        const db = firebase.firestore();
+        db.collection('notice').orderBy("notice_date", "desc").get().then((item) => {
+            total = item.docs.length;
+
+            for (let i = nowPage * numPerPage; i < nowPage * numPerPage + numPerPage; i++) {
+
+                // if (total === i) break;
+                // let option_class = "분류";
+                // const date = new Date(item.docs[i].data().notice_date.seconds * 1000);
+                // if (item.docs[i].data().분류 != undefined) {
+                //     option_class = item.docs[i].data().분류;
+                // }
+
+
+                const template = `
+                    <tr>
+                        <td>${total - i} </td>
+                        <th></i>
+                            <a href="./notice_detail.html?id=${item.docs[i].id}">${item.docs[i].data().notice_title}
+                        </th>
+                        <th>${item.docs[i].data().notice_writer}</th>
+                        <td>${item.docs[i].data().notice_date}</td>
+                    </tr>`
+
+                $('.board-content').append(template);
+            }
+
+            $('.pagenation').text("");
+
+            const pagePath = "notice.html"
+            const pb = new PageBar(numPerPage, total, nowPage, pagePath)
+            $(".pagenation").append(pb.getPageBar())
+        })
+    </script>
+    <script>
+        function searchList() { // 검색 버튼 누르면 작동하는 함수
+            const notice_gubun = $("#notice_gubun option:selected").val(); // 선택한 게 제목인지 작성자인지 내용인지
+            const notice_keyword = $("#notice_keyword").val(); // 내가 검색창에 적은 거
+            // const option_class = $('#option_class option:selected').val();
+            console.log(notice_gubun);
+            console.log(notice_keyword);
+            // console.log(option_class);
+
+
+            let num = 0 //페이지 순번 담음
+            let total = 0 //전체 레코드 수
+            let numPerPage = 5 // 한 페이지에 몇개씩 뿌릴건가
+            let nowPage = 0 // 현재 내가 바라보는 페이지
+            let params = new URLSearchParams(document.location.search)
+            nowPage = params.get("nowPage")
+            // 페이징 처리에 필요한 변수 선언 //
+
+            const db = firebase.firestore();
+            // db.collection('notice').orderBy("notice_date", "desc").startAt(notice_keyword).endAt(notice_keyword + "\uf8ff").get().then((item) => {
+                db.collection('notice').where(notice_gubun, "==", notice_keyword).orderBy("notice_date", "desc").get().then((item) => {
+                total = item.docs.length;
+                console.log(total);
+
+                if (total > 0) {
+                    $(".board-content").text("");
+                } else {
+                    alert("검색어와 일치하는 게시글이 없습니다.");
+                    return;
+                }
+
+                for (let i = nowPage * numPerPage; i < nowPage * numPerPage + numPerPage; i++) {
+                    if (total === i) break;
+                    const date = new Date(item.docs[i].data().notice_date.seconds * 1000);
+
+
+                    const template = `
+                    <tr>
+                        <td>${total - i} </td>
+                        <th></i>
+                            <a href="./notice_detail.html?id=${item.docs[i].id}">${item.docs[i].data().notice_title}
+                        </th>
+                    <th>${item.docs[i].data().notice_writer}</th>
+                    <td>${item.docs[i].data().notice_date}</td>
+                    </tr>`
+
+                    $('.board-content').append(template);
+                }
+
+                $('.pagenation').text("");
+
+                const pagePath = "notice.html";
+                const pb = new PageBar(numPerPage, total, nowPage, pagePath);
+                $(".pagenation").append(pb.getPageBar());
+            })
+        } // end of searchList
+
+        // 엔터 검색
+        $("#notice_keyword").keyup(function (e) {
+            if (e.key === "Enter") {
+                searchList();
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

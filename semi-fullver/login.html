@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/24dbe51f07.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./resource/sb-admin-2.min.css">
+  <link rel="stylesheet" href="./resource/login.css">
+  <script src="./resource/login_check.js"></script>
+
+  <!-- 헤더푸터 파일 -->
+  <link rel="stylesheet" type="text/css" href="./resource/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./resource/font-awesome.css">
+  <link rel="stylesheet" href="./resource/HeaderTest.css">
+  <link rel="stylesheet" href="./resource/owl-carousel.css">
+  <link rel="stylesheet" href="./resource/lightbox.css">
+</head>
+
+<body>
+
+     <!-- ***** Preloader Start ***** -->
+     <div id="preloader">
+      <div class="jumper">
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+  </div>  
+  <!-- ***** Preloader End ***** -->
+
+ <!-- ***** 헤더 시작 ***** -->
+ <header class="header-area header-sticky">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <nav class="main-nav">
+                  <!-- ***** Logo Start ***** -->
+                  <a href="index.html" class="logo">
+                      <img src="./resource/fitnesslogo1.png" width="110" height="110" align="Terrgym">
+                  </a>
+                  <!-- ***** Logo End ***** -->
+                  <!-- ***** Menu Start ***** -->
+                  <ul class="nav">
+                      <li class="submenu">
+                          <a href="#top">센터소개</a>
+                          <ul>
+                              <li><a href="#">시설소개</a></li>
+                              <li><a href="#">지점소개</a></li>
+                              <li><a href="#">강사소개</a></li>
+                          </ul>
+                      </li>
+                      <li class="scroll-to-section"><a href="#about">프로그램</a></li>
+                       
+                  <!-- 
+                      <li class="submenu">
+                          <a href="javascript:;">Drop Down</a>
+                          <ul>
+                              <li><a href="#">Drop Down Page 1</a></li>
+                              <li><a href="#">Drop Down Page 2</a></li>
+                              <li><a href="#">Drop Down Page 3</a></li>
+                          </ul>
+                      </li>
+                  -->
+                  <li class="submenu">
+                      <a href="javascript:;">게시판</a>
+                      <ul>
+                          <li><a href="#">이벤트</a></li>
+                          <li><a href="#">회원권</a></li>
+                          <li><a href="#">채팅문의</a></li>
+                      </ul>
+                  </li>
+                      <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->      
+                      <!-- <li class="scroll-to-section"><a href="#menu" class="active">로그인</a></li>   -->   
+                      <div style="float: right;">
+                          <button type="button" class="signup">회원가입</button>      
+                          <button type="button" class="login">로그인</button>      
+                          <button type="button" class="manager" onclick="document.location.href='http://127.0.0.1:5501/mem-manage.html'">관리자</button>
+                  </div>
+
+                  
+                  </ul>        
+                  <a class='menu-trigger'>
+                      <span>Menu</span>
+                  </a>
+                  <!-- ***** Menu End ***** -->
+              </nav>
+          </div>
+      </div>
+  </div>
+</header>
+<!-- ***** 헤더 끝 ***** -->
+
+  <div class="container">
+
+    
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+      <div class="col-xl-10 col-lg-12 col-md-9">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h6 class="h5 text-gray-900 mb-4" id="mem_gubun_h6">
+                      <input type="radio" value="false" checked="checked" name="checked_auth" class="checked_mem"
+                        id="checked_mem">
+                      <label for="checked_mem">&nbsp;회원</label>&nbsp;&nbsp;&nbsp;
+                      <input type="radio" value="true" name="checked_auth" class="checked_mem checke_adm"
+                        id="checked_adm">
+                      <label for="checked_adm">&nbsp;관리자</label>
+                    </h6>
+                  </div>
+                  <form class="user">
+                    <div class="form-group">
+                      <input type="text" name="login_email" class="form-control form-control-user" id="login_email"
+                        aria-describedby="emailHelp" placeholder="이메일">
+                    </div>
+                    <div class="form-group" id="form-pw">
+                      <input type="password" name="login_pw" class="form-control form-control-user" id="login_pw"
+                        placeholder="비밀번호 (영문, 숫자, 특문 6~20자)">
+                      <i id="eye" class="fa fa-eye fa-lg"></i>
+                    </div>
+                    <!-- <div class="form-group">
+                      <div class="custom-control custom-checkbox small">
+                        <input type="checkbox" name="auto_login" class="custom-control-input" id="auto_login">
+                        <label class="custom-control-label" for="auto_login">자동 로그인</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" name="id_save" class="custom-control-input" id="id_save">
+                        <label class="custom-control-label" for="id_save">아이디 저장</label>
+                      </div>
+                    </div> -->
+                    <a href="javascript:()" class="btn btn-primary btn-user btn-block" id="loginButton">
+                      로그인
+                    </a>
+                    <hr>
+                    <a href="#" name="github_login" class="btn btn-github btn-user btn-block" id="github_login">
+                      <i class="fa-brands fa-github"></i>&nbsp;&nbsp;Login with Github
+                    </a>
+                    <a href="#" name="google_login" class="btn btn-google btn-user btn-block" id="google_login">
+                      <i class="fab fa-google fa-fw"></i>&nbsp;Login with Google
+                    </a>
+                  </form>
+                  <hr>
+                  <div class="text-center">
+                    <a class="small" href="forgot_password.html">비밀번호
+                      찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="small" href="signup.html">회원가입</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ***** 푸터 시작 ***** -->
+ <footer>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-4 col-xs-12">
+              <div class="right-text-content">
+                      <ul class="social-icons">
+                          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                      </ul>
+              </div>
+          </div>
+          <div class="col-lg-4">
+              <div class="logo">
+                  <a href="main.html"><img src="./resource/fitnesslogo2.png" width="110" height="110" alt=""></a>
+              </div>
+          </div>
+          <div class="col-lg-4 col-xs-12">
+              <div class="left-text-content">
+                  <p>© Copyright Terrgym Co.
+                  
+                  <br>Design:  BB</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+<!-- ***** 푸터 끝 ***** -->
+
+  <!-- 패스워드 보였다 안 보였다 -->
+  <script>
+    $(document).ready(function () {
+      $('#eye').on('click', function () {
+        $('#login_pw').toggleClass('active');
+
+        if ($('#login_pw').hasClass('active')) {
+          $(this).attr('class', "fa fa-eye-slash fa-lg").prev('#login_pw').attr('type', "text");
+        } else {
+          $(this).attr('class', "fa fa-eye fa-lg").prev('#login_pw').attr('type', "password");
+        }
+      });
+    });
+  </script>
+  <!-- 패스워드 보였다 안 보였다 -->
+
+
+  <br>
+
+  <!-- 파이어베이스 스크립트-->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithRedirect, signInWithPopup, getRedirectResult, deleteUser } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAkxep9jM-FpeZmEzaHlJuhiiQNEHb_HOk",
+      authDomain: "semiproject6.firebaseapp.com",
+      databaseURL: "https://semiproject6-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "semiproject6",
+      storageBucket: "semiproject6.appspot.com",
+      messagingSenderId: "300720308935",
+      appId: "1:300720308935:web:09cbe5d14559220c0cb4e2"
+    };
+    // firebase.initializeApp();
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    // const provider = new GoogleAuthProvider(app);
+
+    /////////////////// 파이어베이스 스크립트 /////////////////
+
+    /////////////////// 일반 로그인 //////////////////////
+    const db = firebase.firestore();
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        console.log("사용자 이메일 " + user.uid);
+        console.log(user.displayName);
+      }
+    });
+
+    function f_login() {
+      console.log("f_login 실행");
+      // 사용자가 입력한 이메일, 비번
+      const login_email = $("#login_email").val();
+      const login_pw = $("#login_pw").val();
+
+      login_Check();
+      if (login_Check() == false) {
+        return false;
+      }
+
+      if ($("input[id='checked_mem']:checked").val() == 'false') {
+        db.collection("user").get().then((snapshot) => {
+          snapshot.forEach((item) => {
+            if (item.data().mem_email === login_email) {
+              firebase.auth().signInWithEmailAndPassword(login_email, login_pw)
+                .then((result) => {
+                  console.log(result.user);
+                  console.log("회원 로그인에 성공했습니다.");
+                  window.location.href = "./main-login.html";
+                  return false;
+                }).catch((error) => {
+                  console.log(error);
+                })
+            } // if end
+          }) // end of foreach
+          firebase.auth().onAuthStateChanged((user) => {
+            if (!user) {
+              alert("회원 로그인에 실패했습니다.");
+            }
+          }); // end of onAuthStateChange
+        })
+      }
+      else if ($("input[id='checked_adm']:checked").val() == 'true') {
+        db.collection("admin").get().then((snapshot) => {
+          snapshot.forEach((item) => {
+            if (item.data().mem_email === login_email) {
+              firebase.auth().signInWithEmailAndPassword(login_email, login_pw)
+                .then((result) => {
+                  console.log(result.user);
+                  console.log("관리자 로그인에 성공했습니다.");
+                  // window.location.href = "./main.html"; ////////////////////// 여기에 관리자 페이지 메인? 맨 처음 들어갈 링크 넣어 주세요
+                  return false;
+                }).catch((error) => {
+                  console.log(error);
+                })
+            } // if end
+          }) // end of foreach
+          firebase.auth().onAuthStateChanged((user) => {
+            if (!user) {
+              alert("관리자 로그인에 실패했습니다.");
+            }
+          }); // end of onAuthStateChange
+        })
+      }
+      //else {
+      //console.log("정보 없음");
+      //}
+    };
+
+    $("#loginButton").click(f_login);
+    $("#login_email").keyup(function (e) {
+      if (e.key === "Enter") {
+        f_login();
+      }
+    });
+    $("#login_pw").keyup(function (e) {
+      if (e.key === "Enter") {
+        f_login();
+      }
+    });
+    /////////////////// 일반 로그인 //////////////////////
+
+
+    /////////////// 구글 로그인 //////////////////
+    // const provider = new GoogleAuthProvider(app);
+
+    const googleButton = document.getElementById('google_login');
+
+    googleButton.addEventListener('click', (e) => {
+      console.log("클릭");
+      let GGprovider = new firebase.auth.GoogleAuthProvider();
+      GGprovider.addScope('profile');
+      GGprovider.addScope('email');
+      firebase.auth().signInWithPopup(GGprovider).then(function (result) {
+        const token = result.credential.accessToken;
+        const user = result.user;
+        const userInfo = {
+          mem_name: user.displayName,
+          mem_email: user.email
+        }
+        db.collection("user").doc(user.uid).set(userInfo);
+        location.href = "./class_main.html"
+        // alert("구글 로그인에 성공했습니다");
+      })
+
+        .catch((error) => {
+          console.log(error);
+          alert("구글 로그인에 실패했습니다. 다시 시도해 주세요.");
+        })
+    })
+    /////////////// 구글 로그인 //////////////////
+
+    /////////////// 깃허브 로그인 //////////////////
+
+    let GHprovider = new firebase.auth.GithubAuthProvider();
+    document.getElementById('github_login').addEventListener('click', (e) => {
+      console.log("github 로그인 클릭");
+      firebase
+        .auth()
+        .signInWithPopup(GHprovider)
+        .then((result) => {
+          //    /** @type {firebase.auth.OAuthCredential} */
+          let credential = result.credential;
+          let token = result.credential.accessToken;
+          let user = result.user;
+          console.log(user);
+          // alert("깃허브 로그인에 성공했습니다");
+          const userInfo = {
+            mem_email: user.email
+          }
+          db.collection("user").doc(user.uid).set(userInfo);
+          location.href = "./class_main.html"
+        }).catch((error) => {
+          let errorCode = error.code;
+          let errorMessage = error.message;
+          let email = error.email;
+          let credential = error.credential;
+          console.log(error);
+          alert("깃허브 로그인에 실패했습니다. 다시 시도해 주세요.");
+        });
+    })
+
+    /////////////// 깃허브 로그인 //////////////////
+  </script>
+
+</body>
+
+</html>
