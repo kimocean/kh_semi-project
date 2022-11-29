@@ -12,93 +12,10 @@
   <link rel="stylesheet" href="./resource/sb-admin-2.min.css">
   <link rel="stylesheet" href="./resource/login.css">
   <script src="./resource/login_check.js"></script>
-
-  <!-- 헤더푸터 파일 -->
-  <link rel="stylesheet" type="text/css" href="./resource/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="./resource/font-awesome.css">
-  <link rel="stylesheet" href="./resource/HeaderTest.css">
-  <link rel="stylesheet" href="./resource/owl-carousel.css">
-  <link rel="stylesheet" href="./resource/lightbox.css">
 </head>
 
-<body>
-
-     <!-- ***** Preloader Start ***** -->
-     <div id="preloader">
-      <div class="jumper">
-          <div></div>
-          <div></div>
-          <div></div>
-      </div>
-  </div>  
-  <!-- ***** Preloader End ***** -->
-
- <!-- ***** 헤더 시작 ***** -->
- <header class="header-area header-sticky">
+<body class="bg-gradient-primary">
   <div class="container">
-      <div class="row">
-          <div class="col-12">
-              <nav class="main-nav">
-                  <!-- ***** Logo Start ***** -->
-                  <a href="index.html" class="logo">
-                      <img src="./resource/fitnesslogo1.png" width="110" height="110" align="Terrgym">
-                  </a>
-                  <!-- ***** Logo End ***** -->
-                  <!-- ***** Menu Start ***** -->
-                  <ul class="nav">
-                      <li class="submenu">
-                          <a href="#top">센터소개</a>
-                          <ul>
-                              <li><a href="#">시설소개</a></li>
-                              <li><a href="#">지점소개</a></li>
-                              <li><a href="#">강사소개</a></li>
-                          </ul>
-                      </li>
-                      <li class="scroll-to-section"><a href="#about">프로그램</a></li>
-                       
-                  <!-- 
-                      <li class="submenu">
-                          <a href="javascript:;">Drop Down</a>
-                          <ul>
-                              <li><a href="#">Drop Down Page 1</a></li>
-                              <li><a href="#">Drop Down Page 2</a></li>
-                              <li><a href="#">Drop Down Page 3</a></li>
-                          </ul>
-                      </li>
-                  -->
-                  <li class="submenu">
-                      <a href="javascript:;">게시판</a>
-                      <ul>
-                          <li><a href="#">이벤트</a></li>
-                          <li><a href="#">회원권</a></li>
-                          <li><a href="#">채팅문의</a></li>
-                      </ul>
-                  </li>
-                      <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->      
-                      <!-- <li class="scroll-to-section"><a href="#menu" class="active">로그인</a></li>   -->   
-                      <div style="float: right;">
-                          <button type="button" class="signup">회원가입</button>      
-                          <button type="button" class="login">로그인</button>      
-                      <button type="button" class="manager">관리자</button>
-                  </div>
-
-                  
-                  </ul>        
-                  <a class='menu-trigger'>
-                      <span>Menu</span>
-                  </a>
-                  <!-- ***** Menu End ***** -->
-              </nav>
-          </div>
-      </div>
-  </div>
-</header>
-<!-- ***** 헤더 끝 ***** -->
-
-  <div class="container">
-
-    
-
     <!-- Outer Row -->
     <div class="row justify-content-center">
       <div class="col-xl-10 col-lg-12 col-md-9">
@@ -163,37 +80,6 @@
       </div>
     </div>
   </div>
-
-  <!-- ***** 푸터 시작 ***** -->
- <footer>
-  <div class="container">
-      <div class="row">
-          <div class="col-lg-4 col-xs-12">
-              <div class="right-text-content">
-                      <ul class="social-icons">
-                          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                      </ul>
-              </div>
-          </div>
-          <div class="col-lg-4">
-              <div class="logo">
-                  <a href="main.html"><img src=".././resource/fitnesslogo2.png" width="110" height="110" alt=""></a>
-              </div>
-          </div>
-          <div class="col-lg-4 col-xs-12">
-              <div class="left-text-content">
-                  <p>© Copyright Terrgym Co.
-                  
-                  <br>Design:  BB</p>
-              </div>
-          </div>
-      </div>
-  </div>
-</footer>
-<!-- ***** 푸터 끝 ***** -->
-
   <!-- 패스워드 보였다 안 보였다 -->
   <script>
     $(document).ready(function () {
@@ -300,6 +186,8 @@
   <!-- 카카오 연결 끊기(탈퇴) -->
   <br>
 
+  <button value="로그아웃" id="logout">로그아웃</button>
+  <input type="button" value="탈퇴" id="userDeleteButton">
   <!-- 파이어베이스 스크립트-->
   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
@@ -357,7 +245,7 @@
                 .then((result) => {
                   console.log(result.user);
                   console.log("회원 로그인에 성공했습니다.");
-                  window.location.href = "./main.html";
+                  // window.location.href = "./main.html";
                   return false;
                 }).catch((error) => {
                   console.log(error);
@@ -379,7 +267,7 @@
                 .then((result) => {
                   console.log(result.user);
                   console.log("관리자 로그인에 성공했습니다.");
-                  // window.location.href = "./main.html"; ////////////////////// 여기에 관리자 페이지 메인? 맨 처음 들어갈 링크 넣어 주세요
+                  // window.location.href = "./main.html";
                   return false;
                 }).catch((error) => {
                   console.log(error);
@@ -472,7 +360,27 @@
     })
 
     /////////////// 깃허브 로그인 //////////////////
+    document.getElementById('logout').addEventListener('click', () => {
+      firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        alert("로그아웃 완료");
+      }).catch((error) => {
+        // An error happened.
+        alert('로그아웃 실패')
+      });
+    })
 
+    document.getElementById("userDeleteButton").addEventListener('click', () => {
+      console.log('click delete');
+      const userDelete = auth.currentUser;
+      
+      deleteUser(userDelete).then(() => {
+        alert("탈퇴 완료")
+      }).catch((error) => {
+        console.log(error.message);
+        alert("탈퇴 불가능")
+      });
+    })
   </script>
 
 </body>

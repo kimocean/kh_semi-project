@@ -1,0 +1,157 @@
+.container-fluid {
+  margin: auto;
+  width: 1000px;
+}
+
+.product {
+  display: flex;
+  padding: 3px;
+}
+.thumbnail {
+  max-width: 200px;
+  width: 100%;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+}
+.product .price {
+  font-size: 16px;
+  font-weight: 600;
+}
+.product .title {
+  font-size: 17px;
+  font-weight: 600;
+}
+.product .date {
+  color: grey;
+  font-size: 13px;
+}
+
+.detail-pic {
+  max-width:100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+} 
+
+.chat-content {
+  height: 450px;
+  overflow-y: scroll;
+  padding: 10px;
+}
+.chat-content li {
+  margin-top: 10px;
+}
+.text-small {
+  font-size: 12px;
+  color: gray;
+  margin-bottom: 0;
+}
+.chat-box {
+  background: #eee;
+  padding: 5px;
+  border-radius: 5px;
+  float: left;
+}
+.mine {
+  float: right;
+}
+
+.row {
+  text-align: center;
+}
+
+/* index3 */
+
+.board-table {
+  font-size: 13px;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.board-table a {
+  color: #333;
+  display: inline-block;
+  line-height: 1.4;
+  word-break: break-all;
+  vertical-align: middle;
+  text-decoration-line: none;
+}
+.board-table a:hover {
+  text-decoration: underline;
+  text-decoration-line: none;
+}
+.board-table th {
+  text-align: center;
+}
+
+.board-table .th-num {
+  width: 100px;
+  text-align: center;
+}
+
+.board-table .th-date {
+  width: 200px;
+}
+
+.board-table th, .board-table td {
+  padding: 14px 0;
+}
+
+.board-table tbody td {
+  border-top: 1px solid #e7e7e7;
+  text-align: center;
+}
+
+.board-table tbody th {
+  padding-left: 28px;
+  padding-right: 14px;
+  border-top: 1px solid #e7e7e7;
+  text-align: left;
+}
+
+.board-table tbody th p{
+  display: none;
+}
+
+
+.pagenation a {
+  text-decoration-line: none;
+  color: black;
+}
+
+/* 캘린더 시작 */
+.calendar {width: 400px; padding: 5px 20px 20px 20px; box-sizing: border-box; border: 1px solid;}
+.calendar > .header {text-align: center;}
+.calendar > .header > .title {width:50%; display: inline-block;}
+.calendar > .header > .calendar_btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  padding: 0;
+  background-color: #ffffff;
+  vertical-align: middle;
+  color: black;
+}
+.calendar > .day {width:100%; display: table; table-layout: fixed;}
+.calendar > .day > div {display: table-cell; text-align: center; height: 50px; vertical-align: middle;}
+.calendar > .day > div:first-child {color: red;}
+.calendar > .day > div:last-of-type {color: blue;}
+.calendar > .dates {display: flex; flex-wrap: wrap; width: 100%;}
+.calendar > .dates > .date {text-align: center; width: calc(100%/7); height: 50px; box-sizing: border-box;line-height: 3; border-radius: 3px;} 
+.calendar > .dates > .date:nth-child(7n){color: blue;}
+.calendar > .dates > .date:nth-child(7n+1){color: red;}
+.calendar > .dates > .last {color: #c8c8c8 !important;}
+.calendar > .dates > .next {color: #c8c8c8 !important;}
+/* 캘린더 끝 */
+
+.th-title {
+  width: 550px;
+}
+
+.th-writer-text {
+  text-align: center;
+  margin: auto;
+  /* background-color: black; */
+}

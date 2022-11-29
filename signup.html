@@ -8,26 +8,18 @@
   <title>회원가입</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <!-- Custom fonts for this template-->
-  <link href="../startbootstrap-sb-admin-2-gh-pages/vendor/fontawesome-free/css/all.css" rel="stylesheet"
-    type="text/css">
   <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="../startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css" rel="stylesheet">
-
-  <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
 
   <script src="https://kit.fontawesome.com/24dbe51f07.js" crossorigin="anonymous"></script>
+
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -40,11 +32,97 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="signup.css">
-  <script src="signup_check.js" defer></script>
+
+  <link rel="stylesheet" href="./resource/signup.css">
+  <link href="./resource/all.css" rel="stylesheet"
+    type="text/css">
+
+  <!-- Custom styles for this template-->
+  <link href="./resource/sb-admin-2.min.css" rel="stylesheet">
+
+  <!-- CSS only -->
+  <script src="./resource/signup_check.js" defer></script>
+ <!-- 헤더푸터 파일 -->
+ <link rel="stylesheet" type="text/css" href="./resource/bootstrap.min.css">
+ <link rel="stylesheet" type="text/css" href="./resource/font-awesome.css">
+ <link rel="stylesheet" href="./resource/HeaderTest.css">
+ <link rel="stylesheet" href="./resource/owl-carousel.css">
+ <link rel="stylesheet" href="./resource/lightbox.css">
 </head>
 
-<body class="bg-gradient-primary">
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+     <div class="jumper">
+         <div></div>
+         <div></div>
+         <div></div>
+     </div>
+ </div>  
+ <!-- ***** Preloader End ***** -->
+
+<!-- ***** 헤더 시작 ***** -->
+<header class="header-area header-sticky">
+ <div class="container">
+     <div class="row">
+         <div class="col-12">
+             <nav class="main-nav">
+                 <!-- ***** Logo Start ***** -->
+                 <a href="index.html" class="logo">
+                     <img src="./resource/fitnesslogo1.png" width="110" height="110" align="Terrgym">
+                 </a>
+                 <!-- ***** Logo End ***** -->
+                 <!-- ***** Menu Start ***** -->
+                 <ul class="nav">
+                     <li class="submenu">
+                         <a href="#top">센터소개</a>
+                         <ul>
+                             <li><a href="#">시설소개</a></li>
+                             <li><a href="#">지점소개</a></li>
+                             <li><a href="#">강사소개</a></li>
+                         </ul>
+                     </li>
+                     <li class="scroll-to-section"><a href="#about">프로그램</a></li>
+                      
+                 <!-- 
+                     <li class="submenu">
+                         <a href="javascript:;">Drop Down</a>
+                         <ul>
+                             <li><a href="#">Drop Down Page 1</a></li>
+                             <li><a href="#">Drop Down Page 2</a></li>
+                             <li><a href="#">Drop Down Page 3</a></li>
+                         </ul>
+                     </li>
+                 -->
+                 <li class="submenu">
+                     <a href="javascript:;">게시판</a>
+                     <ul>
+                         <li><a href="#">이벤트</a></li>
+                         <li><a href="#">회원권</a></li>
+                         <li><a href="#">채팅문의</a></li>
+                     </ul>
+                 </li>
+                     <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->      
+                     <!-- <li class="scroll-to-section"><a href="#menu" class="active">로그인</a></li>   -->   
+                     <div style="float: right;">
+                         <button type="button" class="signup">회원가입</button>      
+                         <button type="button" class="login">로그인</button>      
+                     <button type="button" class="manager">관리자</button>
+                 </div>
+
+                 
+                 </ul>        
+                 <a class='menu-trigger'>
+                     <span>Menu</span>
+                 </a>
+                 <!-- ***** Menu End ***** -->
+             </nav>
+         </div>
+     </div>
+ </div>
+</header>
+<!-- ***** 헤더 끝 ***** -->
   <div class="container">
 
     <div class="card o-hidden border-0 shadow-lg my-5">
@@ -66,14 +144,14 @@
                 </div>
                 <!-- 이메일 -->
                 <div class="form-group">
-                    <input type="text" placeholder="email" name="mem_email_left" class="form-control form-control-user"
-                      id="mem_email_left">
+                  <input type="text" placeholder="이메일" name="mem_email_left" class="form-control form-control-user"
+                    id="mem_email_left">
                 </div>
 
                 <div class="form-group row" id="mem_email_form">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" name="mem_email_right" class="form-control form-control-user"
-                    id="mem_email_right" placeholder="domain">
+                      id="mem_email_right" placeholder="도메인">
                   </div>
                   <div class="col-sm-6">
                     <select class="form-select" name="mem_select_email" id="mem_select_email">
@@ -90,24 +168,35 @@
                 <!-- 비밀번호 -->
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" onchange="check_pw()" name="mem_pw" class="form-control form-control-user"
-                      id="mem_pw" placeholder="Password - 영문, 숫자, 특문 6~20자">
+                    <input type="text" name="mem_pw" class="form-control form-control-user" id="mem_pw"
+                      placeholder="비밀번호 - 영문, 숫자, 특문 6~20자">
                     <!-- &nbsp;<span id="mem_pw_con1"></span> &nbsp;<span id="mem_pw_con2"></span> -->
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" onchange="check_pw()" name="mem_pw_check" class="form-control form-control-user"
-                      id="mem_pw_check" placeholder="Repeat Password">
-                       <!-- &nbsp;<span id="mem_pw_msg"></span> -->
+                    <input type="text" name="mem_pw_check" class="form-control form-control-user" id="mem_pw_check"
+                      placeholder="비밀번호 확인">
+                    <!-- &nbsp;<span id="mem_pw_msg"></span> -->
                   </div>
                 </div>
                 <!-- 비밀번호 -->
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" name="mem_name" id="mem_name"
-                    placeholder="이름">
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" name="mem_name" id="mem_name"
+                      placeholder="이름">
+                  </div>
+                  <div class="col-sm-6">
+                    <!-- <input type="text" class="form-control form-control-user" name="mem_gen" id="mem_gen"
+                    placeholder="성별"> -->
+                    <select class="form-select" name="mem_gen" id="mem_gen">
+                      <option value="" selected>성별</option>
+                      <option value="female">여성</option>
+                      <option value="male">남성</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="form-group">
                   <input type="text" maxlength="13" name="mem_tel" id="mem_tel" class="form-control form-control-user"
-                    placeholder="Telephone Number">
+                    placeholder="전화번호">
                 </div>
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" name="mem_adr_left" id="mem_adr_left"
@@ -116,48 +205,81 @@
                   <input type="text" class="form-control form-control-user" name="mem_adr_right" id="mem_adr_right"
                     placeholder="상세 주소">
                 </div>
-                <input type="date" name="mem_birth" class="mem_birth form-control form-control-user" id="mem_birth"> <br>
+                <input type="date" name="mem_birth" class="mem_birth form-control form-control-user" id="mem_birth">
+                <br>
                 <div class="custom-control custom-checkbox small" id="mem_gubun_form">
-                    <input type="checkbox" value="true" name="mem_gubun" class="custom-control-input" id="mem_gubun"
-                      class="custom-control-input">
-                    <label class="custom-control-label" for="mem_gubun">관리자입니다.</label>
-                  </div>
+                  <input type="checkbox" value="true" name="mem_gubun" class="custom-control-input" id="mem_gubun"
+                    class="custom-control-input">
+                  <label class="custom-control-label" for="mem_gubun">관리자입니다.</label>
                 </div>
-                <hr>
-                <a href="#" name="mem_register" id="mem_register" class="btn btn-primary btn-user btn-block">
-                  Register Account
-                </a>
-                <!-- <a href="javascript:kakaoLogin()" name="kakao_login" class="btn btn-kakao btn-user btn-block"
+            </div>
+            <hr>
+            <a href="#" name="mem_register" id="mem_register" class="btn btn-primary btn-user btn-block">
+              회원가입
+            </a>
+            <!-- <a href="javascript:kakaoLogin()" name="kakao_login" class="btn btn-kakao btn-user btn-block"
                   id="kakao_login">
                   <i class="fa-solid fa-comment"></i>&nbsp;&nbsp;Register with KakaoTalk
                 </a>
                 <a href="index.html" class="btn btn-google btn-user btn-block">
                   <i class="fab fa-google fa-fw"></i> Register with Google
                 </a> -->
-              </form>
-              <!-- <hr> -->
-              <div id="link_form">
-                <div class="text-center">
-                  <a class="small" href="forgot_password.html">비밀번호 찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-                  <a class="small" href="login.html">로그인</a>
-                </div>
+            </form>
+            <!-- <hr> -->
+            <div id="link_form">
+              <div class="text-center">
+                <a class="small" href="forgot_password.html">비밀번호
+                  찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="small" href="login.html">로그인</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
   </div>
+
+   <!-- ***** 푸터 시작 ***** -->
+ <footer>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-4 col-xs-12">
+              <div class="right-text-content">
+                      <ul class="social-icons">
+                          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                      </ul>
+              </div>
+          </div>
+          <div class="col-lg-4">
+              <div class="logo">
+                  <a href="main.html"><img src="./resource/fitnesslogo2.png" width="110" height="110" alt=""></a>
+              </div>
+          </div>
+          <div class="col-lg-4 col-xs-12">
+              <div class="left-text-content">
+                  <p>© Copyright Terrgym Co.
+                  
+                  <br>Design:  BB</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+<!-- ***** 푸터 끝 ***** -->
+
   <!-- Bootstrap core JavaScript-->
-  <script src="../startbootstrap-sb-admin-2-gh-pages/vendor/jquery/jquery.min.js"></script>
-  <script src="../startbootstrap-sb-admin-2-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./resource/jquery.min.js"></script>
+  <script src="./resource/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="../startbootstrap-sb-admin-2-gh-pages/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="./resource/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="../startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js"></script>
+  <script src="./resource/sb-admin-2.min.js"></script>
 
   <!-- 파이어베이스 회원가입 스크립트 -->
   <!-- 파이어베이스 스크립트 -->
@@ -206,23 +328,25 @@
       const mem_id = $("#mem_email_left").val();
       const mem_pw = $("#mem_pw").val();
       const mem_name = $("#mem_name").val();
+      const mem_gen = $("#mem_gen").val();
       const mem_email = ($("#mem_email_left").val() + "@" + $("#mem_email_right").val());
-      // const mem_email = ($("#mem_email_left").val() + "@" + $("#mem_email_right").val());
       const mem_tel = $("#mem_tel").val();
       const mem_birth = $("#mem_birth").val();
-      const mem_adr = ($("#mem_adr_left").val() + $("#mem_adr_right").val());
+      const mem_adr = ($("#mem_adr_left").val() + " " + $("#mem_adr_right").val());
       const mem_gubun = $("#mem_gubun").is(":checked");
 
-        if(signUp_check() == false) {
-          return false;
-        }
+      // if (signUp_check() == false) {
+      //   return false;
+      // }
 
       firebase.auth().createUserWithEmailAndPassword(mem_email, mem_pw)
         .then((result) => {
           console.log("result user : " + result.user);
           const userInfo = {
             mem_id: mem_id,
+            mem_pw: mem_pw,
             mem_name: mem_name,
+            mem_gen: mem_gen,
             mem_email: mem_email,
             mem_tel: mem_tel,
             mem_birth: mem_birth,
@@ -230,26 +354,33 @@
             mem_gubun: mem_gubun,
           };
           console.log(userInfo);
-          // db.collection("user").doc(result.user.uid).set(userInfo);
-          // result.user.updateProfile({ displayName: mem_name }).then((displayName) => {
-          //   console.log("displayName => " + mem_name);
-          // });
-          if(mem_gubun === true) {
-            db.collection("admin").doc(result.user.uid).set(userInfo);
-          result.user.updateProfile({ displayName: mem_name }).then((displayName) => {
-            console.log("displayName => " + mem_name);
-          });
-            window.location.href = "./signup_adm.html";
+          if (mem_gubun === true) {
+            db.collection("admin").doc(result.user.uid).set(userInfo)
+            .then((result) => {
+              alert("관리자 가입에 성공했습니다.")
+              window.location.href = "./main.html";
+            })
           } else {
-            db.collection("user").doc(result.user.uid).set(userInfo);
-          result.user.updateProfile({ displayName: mem_name }).then((displayName) => {
-            console.log("displayName => " + mem_name);
-          });
-            window.location.href = "./signup_mem.html";
+            db.collection("user").doc(result.user.uid).set(userInfo)
+            .then((result) => {
+              alert("회원 가입에 성공했습니다.")
+              window.location.href = "./main.html";
+            })
           }
         })
         .catch((error) => {
           console.log(error);
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode);
+          console.log(errorMessage);
+          if (errorCode == 'auth/email-already-in-use' || errorCode == 'auth/email-already-exists') {
+            alert("이미 사용 중인 이메일입니다. 다시 시도해 주세요.")
+          } else if (errorCode == 'auth/invalid-email') {
+            alert("사용할 수 없는 이메일입니다. 다시 시도해 주세요.")
+          } else {
+            alert("가입에 실패했습니다. 다시 시도해 주세요.")
+          }
         })
     }) // end of click register
     // )
@@ -272,42 +403,6 @@
   </script>
   <!-- 이메일 주소 스크립트 -->
 
-  <!-- 비밀번호 확인 스크립트 -->
-  <script>
-    // function check_pw() {
-
-    //   let mem_pw = document.getElementById('mem_pw').value;
-    //   let SC = ["!", "@", "#", "$", "%", "*"];
-    //   let check_SC = 0;
-
-    //   if (mem_pw.length < 6 || mem_pw.length > 20) {
-    //     document.getElementById('mem_pw_con1').innerHTML = '비밀번호는 6글자 이상, 20글자 이하만 이용 가능합니다.';
-    //   } else {
-    //     document.getElementById('mem_pw_con1').innerHTML = '';
-    //   }
-    //   for (let i = 0; i < SC.length; i++) {
-    //     if (mem_pw.indexOf(SC[i]) != -1) {
-    //       check_SC = 1;
-    //     }
-    //   }
-    //   if (check_SC == 0) {
-    //     document.getElementById('mem_pw_con2').innerHTML = '!,@,#,$,%,* 의 특수문자가 들어가 있지 않습니다.';
-    //   } else {
-    //     document.getElementById('mem_pw_con2').innerHTML = '';
-    //   }
-    //   if (document.getElementById('mem_pw').value != '' && document.getElementById('mem_pw_check').value != '') {
-    //     if (document.getElementById('mem_pw').value == document.getElementById('mem_pw_check').value) {
-    //       document.getElementById('mem_pw_msg').innerHTML = '비밀번호가 일치합니다.'
-    //       document.getElementById('mem_pw_msg').style.color = 'blue';
-    //     }
-    //     else {
-    //       document.getElementById('mem_pw_msg').innerHTML = '비밀번호가 일치하지 않습니다.';
-    //       document.getElementById('mem_pw_msg').style.color = 'red';
-    //     }
-    //   }
-    // }
-  </script>
-  <!-- 비밀번호 확인 스크립트 -->
 
 
   <!-- 다음 주소 api 스크립트 -->
@@ -345,45 +440,6 @@
 
   <!-- 휴대폰 번호 하이픈 자동 생성 스크립트 -->
 
-  <!-- 아이디/비번 일치/이메일 존재해야 회원가입 버튼 활성화 -->
-  <script>
-    // const ckId = document.getElementById("mem_id");
-    const ckPw = document.getElementById("mem_pw");
-    const ckPwCk = document.getElementById("mem_pw_check");
-    const ckEmailL = document.getElementById("mem_email_left");
-    const ckEmailR = document.getElementById("mem_email_right");
-    const mem_register = document.getElementById("mem_register");
-
-    // ckId.addEventListener('keyup', activeEvent);
-    ckPw.addEventListener('keyup', activeEvent);
-    ckPwCk.addEventListener('keyup', activeEvent);
-    ckEmailL.addEventListener('keyup', activeEvent);
-    ckEmailR.addEventListener('keyup', activeEvent);
-
-    function activeEvent() {
-      if (((ckPw && /*ckId && */ckEmailL && ckEmailR) && (ckPw.value === ckPwCk.value))) {
-        mem_register.disabled = false;
-      } else {
-        mem_register.disabled = true;
-        console.log(((/*ckId && */ckPw && ckEmailL && ckEmailR) && (ckPw.value === ckPwCk.value)));
-      }
-      // switch(((ckId && ckPw && ckEmailL && ckEmailR) || (ckPw.value === ckPwCk.value))) {
-      //   case true : mem_register.disabled = false; break;
-      //   case false : mem_register.disabled = true; break;
-      // }
-    }
-
-    mem_register.addEventListener('click', (e) => {
-      // console.log(ckId.value);
-      // console.log(ckPw.value);
-      // console.log(ckPwCk.value);
-      // console.log(ckEmailL.value);
-      // console.log(ckEmailR.value);
-      // console.log(mem_register.disabled);
-      // console.log(ckPw.value === ckPwCk.value);
-    })
-  </script>
-  <!-- 아이디/비번 일치/이메일 존재해야 회원가입 버튼 활성화 -->
 </body>
 
 </html>

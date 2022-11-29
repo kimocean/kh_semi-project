@@ -26,11 +26,19 @@ if(!mem_email_test.test(mem_email_left.value)) {
   return false;
 } // 이메일 영어 숫자 체크
 
+const mem_domain_test = /^[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]*$/; 
+
 if(mem_email_right.value == "") {
   alert("도메인을 입력하세요.")
   mem_email_right.focus();
   return false;
 }
+
+if(!mem_domain_test.test(mem_email_right.value)) {
+  alert("도메인 형식에 맞게 입력해 주세요.")
+  mem_email_right.focus();
+  return false;
+} // 도메인 영어 체크
 
 ////////////// 이메일 /////////////
 
@@ -70,13 +78,21 @@ if(mem_name.value == "") {
 
 ////////////// 이름 /////////////
 
+if(!(mem_gen.value == "female" || mem_gen.value == "male")) {
+  alert("성별을 선택하세요.")
+  mem_gen.focus();
+  return false;
+}
+
+////////////// 성별 /////////////
+
 if(mem_tel.value == "") {
   alert("전화번호를 입력하세요.")
   mem_tel.focus();
   return false;
 }
 
-if(!(9 <= mem_tel.value.length && mem_tel.value.length <= 13)) {
+if(!(11 <= mem_tel.value.length && mem_tel.value.length <= 13)) {
   alert("전화번호를 다시 입력해 주세요.")
   mem_tel.focus();
   return false;

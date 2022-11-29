@@ -8,13 +8,19 @@
 
 #mem_select_email {
   padding: 10px 15px;
-  border-radius: 20px;
+  border-radius: 40px;
+  margin-top: 1px;
+}
+#mem_gen {
+  padding: 10px 15px;
+  border-radius: 40px;
+  margin-top: 1px;
 }
 
 
 
 #mem_adr_left {
-  width: 410px;
+  width: 78%;
   display: inline-block;
   margin-bottom: 15px;
   /* margin-right: 15px; */

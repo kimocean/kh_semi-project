@@ -92,7 +92,7 @@
         snapshot.forEach((item) => {
           if (item.data().class_date == ($('#period_1').text())) {
             const template = `
-              <div class="${item.id}" id="input_class_detail" onclick="window.open('./class_upd.html?id=${item.id}')">
+              <div class="${item.id}" id="input_class_detail" onclick="window.location.href = './class_upd.html?id=${item.id}'">
                 <span id="span_class_name">[${item.data().class_type}] ${item.data().class_name}</span><br>
                 <span id="span_class_time">${item.data().class_time}&nbsp;-&nbsp${item.data().class_time_plus}</span>
                 <br>

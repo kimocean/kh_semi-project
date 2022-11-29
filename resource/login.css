@@ -10,7 +10,6 @@
 
 
 .fa-lg {
-  background-color: blue;
   position: absolute;
   margin-top: -25px;
   margin-left: 305px;
@@ -43,3 +42,6 @@
   border-color: #fff
 }
 
+.container {
+  /* margin-bottom: 200px; */
+}
