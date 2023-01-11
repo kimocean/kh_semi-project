@@ -71,16 +71,38 @@
   
 ## Implements
 
-## 상품 관리
+## 회원 가입, 로그인, 비밀번호 찾기
   
-#### 상품 등록 후 판매자별 상품 목록 조회
-  ![상품등록](https://user-images.githubusercontent.com/101934302/210506070-50b4f74e-0ebb-48a1-8292-d22160178b78.gif)
+#### 회원 가입
+  ![회원가입](https://user-images.githubusercontent.com/101934302/211796423-9770b055-4111-4607-b645-678869b504a2.gif)
   
-#### 상품 상세 페이지 및 수정
-  ![상품수정](https://user-images.githubusercontent.com/101934302/210535750-13c3867f-80bf-4600-9621-25f3a4381714.gif)
+#### 로그인
+  ![로그인](https://user-images.githubusercontent.com/101934302/211796436-bc054556-f8ba-4157-a522-e8a14bd8da52.gif)
   
-#### 상품 선택 삭제
-  ![상품선택삭제](https://user-images.githubusercontent.com/101934302/210534232-5901d596-5898-42a5-a14b-9c73e1aef743.gif)
+#### 비밀번호 찾기
+  ![비밀번호 찾기](https://user-images.githubusercontent.com/101934302/211796445-74cc89c3-46c1-46c4-9a20-50bc6b60ce5b.gif)  
+  
+## 수업 관리
+
+#### 수업 등록
+  ![수업등록](https://user-images.githubusercontent.com/101934302/211797927-7a15bf8f-c831-4d07-ba36-6c450884ad7c.gif)
+
+#### 수업 수정
+  ![수업수정](https://user-images.githubusercontent.com/101934302/211797935-b4146204-d0ee-4620-92a7-6c6e869a0b20.gif)
+
+#### 수업 삭제
+  ![수업삭제](https://user-images.githubusercontent.com/101934302/211797943-cdc807b2-3247-4e78-b89f-11d4f36f10de.gif)
+
+## 공지사항 관리
+
+#### 공지사항 등록
+  ![공지등록](https://user-images.githubusercontent.com/101934302/211798169-3dc5db59-d4bf-4b69-85a9-cc3b068174a0.gif)
+
+#### 공지사항 수정
+  ![공지수정](https://user-images.githubusercontent.com/101934302/211798174-61fb44cd-3dc8-484b-857c-0b737c6cccbd.gif)
+
+#### 공지사항 삭제
+  ![공지삭제](https://user-images.githubusercontent.com/101934302/211798307-986127f0-3ad6-4fb9-8a6c-acdc17a056a4.gif)
     
 ---
     
